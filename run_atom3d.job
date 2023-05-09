@@ -19,7 +19,7 @@ source activate gvp
 # srun python run_atom3d.py SMP --batch 64 --seed 34
 # srun python run_atom3d.py SMP --batch 64 --seed 42
 
-srun python run_atom3d.py SMP --batch 64 --seed 0 --transformer
+# srun python run_atom3d.py SMP --batch 64 --seed 0 --transformer
 # srun python run_atom3d.py SMP --batch 64 --seed 34 --transformer
 # srun python run_atom3d.py SMP --batch 64 --seed 42 --transformer
 
