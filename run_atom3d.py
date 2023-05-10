@@ -1,5 +1,6 @@
 import argparse
 import warnings
+import random
 
 parser = argparse.ArgumentParser()
 parser.add_argument('task', metavar='TASK', choices=[
@@ -75,8 +76,7 @@ def main():
         test(model, testset)
 
     else:
-        torch.manual_seed(args.seed)
-        np.random.seed(args.seed)
+        seed_torch(args.seed)
         if args.load:
             print("--------loading model--------")
             load(model, args.load)
@@ -114,11 +114,11 @@ def train(model, trainset, valset):
     
     # Make model directory
     if args.transformer:
-        path = f"{models_dir}/{args.task}/{args.seed}/Transformer/"
+        root = f"{models_dir}/{args.task}/Transformer/{args.seed}/"
     elif args.protein_bert:
-        path = f"{models_dir}/{args.task}/{args.seed}/ProteinBert/"
+        root = f"{models_dir}/{args.task}/ProteinBert/{args.seed}/"
     else:
-        path = f"{models_dir}/{args.task}/{args.seed}/GVP/"
+        root = f"{models_dir}/{args.task}/GVP/{args.seed}/"
     
     if not os.path.exists(path):
         os.makedirs(path)
@@ -126,11 +126,11 @@ def train(model, trainset, valset):
     for epoch in range(args.epochs):
         # Model save path
         if args.transformer:
-            path = os.path.join(path, f"{args.task}_{model_id}_{epoch}_TF.pt")
+            path = os.path.join(root, f"{args.task}_{model_id}_{epoch}_TF.pt")
         elif args.protein_bert:
-            path = os.path.join(path, f"{args.task}_{model_id}_{epoch}_PB.pt")
+            path = os.path.join(root, f"{args.task}_{model_id}_{epoch}_PB.pt")
         else:
-            path = os.path.join(path, f"{args.task}_{model_id}_{epoch}_GVP.pt")
+            path = os.path.join(root, f"{args.task}_{model_id}_{epoch}_GVP.pt")
         
         model.train()
         loss = loop(trainset, model, optimizer=optimizer, max_time=args.train_time)
@@ -297,6 +297,15 @@ def get_model(task):
         'LBA' : gvp.atom3d.LBAModel(use_transformer=args.transformer),
         'SMP' : gvp.atom3d.SMPModel(use_transformer=args.transformer)
     }[task]
+    
+def seed_torch(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed) # multi-GPU
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
 
 if __name__ == "__main__":
     main()
