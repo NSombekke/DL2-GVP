@@ -113,7 +113,9 @@ dependencies:
     - easy-parallel==0.1.6
     - filelock==3.11.0
     - freesasa==2.2.0.post3
+    - fsspec==2023.5.0
     - h5py==3.8.0
+    - huggingface-hub==0.14.1
     - joblib==1.2.0
     - lit==16.0.1
     - lmdb==1.4.1
@@ -146,13 +148,19 @@ dependencies:
     - python-dateutil==2.8.2
     - python-dotenv==1.0.0
     - pytz==2023.3
+    - pyyaml==6.0
+    - regex==2023.5.5
     - scipy==1.10.1
     - setuptools==67.6.1
     - tables==3.8.0
     - threadpoolctl==3.1.0
+    - tokenizers==0.13.3
     - torch==2.0.0
+    - transformers==4.28.1
     - triton==2.0.0
     - typing-extensions==4.5.0
     - tzdata==2023.3
     - wheel==0.40.0
+variables:
+  CUBLAS_WORKSPACE_CONFIG: :16:8
 prefix: /home/lcur1723/.conda/envs/gvp
