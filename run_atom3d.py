@@ -120,8 +120,8 @@ def train(model, trainset, valset):
     else:
         root = f"{models_dir}/{args.task}/GVP/{args.seed}/"
     
-    if not os.path.exists(path):
-        os.makedirs(path)
+    if not os.path.exists(root):
+        os.makedirs(root)
     
     for epoch in range(args.epochs):
         # Model save path
