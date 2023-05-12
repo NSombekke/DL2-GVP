@@ -10,6 +10,8 @@ from . import GVP, GVPConvLayer, LayerNorm, TransformerConv
 import torch_cluster, torch_geometric, torch_scatter
 from .data import _normalize, _rbf
 
+import atom3d.protein.sequence as seq
+
 _NUM_ATOM_TYPES = 9
 _element_mapping = lambda x: {
     'H' : 0,
@@ -112,6 +114,40 @@ class BaseTransform:
             return torch_geometric.data.Data(x=coords, atoms=atoms,
                         edge_index=edge_index, edge_s=edge_s, edge_v=edge_v)
 
+class BaseTransformSequence:
+    '''
+    ...
+    '''
+    def __init__(self, edge_cutoff=4.5, num_rbf=16, device='cpu'):
+        self.edge_cutoff = edge_cutoff
+        self.num_rbf = num_rbf
+        self.device = device
+            
+    def __call__(self, df):
+        '''
+        :param df: `pandas.DataFrame` of atomic coordinates
+                    in the ATOM3D format
+        
+        :return: `torch_geometric.data.Data` structure graph
+        '''
+        with torch.no_grad():
+            coords = torch.as_tensor(df[['x', 'y', 'z']].to_numpy(),
+                                     dtype=torch.float32, device=self.device)
+            atoms = torch.as_tensor(list(map(_element_mapping, df.element)),
+                                            dtype=torch.long, device=self.device)
+
+            edge_index = torch_cluster.radius_graph(coords, r=self.edge_cutoff)
+
+            edge_s, edge_v = _edge_features(coords, edge_index, 
+                                D_max=self.edge_cutoff, num_rbf=self.num_rbf, device=self.device)
+            
+            chain_sequences = seq.get_chain_sequences(df)   
+            return torch_geometric.data.Data(x=coords, atoms=atoms,
+                                        edge_index=edge_index, edge_s=edge_s, 
+                                        edge_v=edge_v, chain_sequences=chain_sequences)
+
+
+
 class BaseModel(nn.Module):
     '''
     A base 5-layer GVP-GNN for all ATOM3D tasks, using GVPs with 
@@ -172,7 +208,13 @@ class BaseModel(nn.Module):
                              (for each graph), else, returns embeddings seperately
         :param dense: if `True`, applies final dense layer to reduce embedding
                       to a single scalar; else, returns the embedding
-        '''
+        '''        
+
+        # # print(batch)
+        # batch.atoms
+        # chain_sequences = seq.get_chain_sequences(batch.atoms)
+        # print("chain_sequences :", chain_sequences)
+
         h_V = self.embed(batch.atoms)
         h_E = (batch.edge_s, batch.edge_v)
         h_V = self.W_v(h_V)
@@ -586,7 +628,8 @@ class RESDataset(IterableDataset):
     def __init__(self, lmdb_dataset, split_path):
         self.dataset = LMDBDataset(lmdb_dataset)
         self.idx = list(map(int, open(split_path).read().split()))
-        self.transform = BaseTransform()
+        # self.transform = BaseTransform()
+        self.transform = BaseTransformSequence()
         
     def __iter__(self):
         worker_info = torch.utils.data.get_worker_info()
@@ -615,7 +658,7 @@ class RESDataset(IterableDataset):
                     my_atoms = atoms.iloc[data['subunit_indices'][sub.Index]].reset_index(drop=True)
                     ca_idx = np.where((my_atoms.residue == num) & (my_atoms.name == 'CA'))[0]
                     if len(ca_idx) != 1: continue
-                        
+
                     with torch.no_grad():
                         graph = self.transform(my_atoms)
                         graph.label = aa
