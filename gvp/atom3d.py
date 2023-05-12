@@ -114,40 +114,6 @@ class BaseTransform:
             return torch_geometric.data.Data(x=coords, atoms=atoms,
                         edge_index=edge_index, edge_s=edge_s, edge_v=edge_v)
 
-# class BaseTransformSequence:
-#     '''
-#     ...
-#     '''
-#     def __init__(self, edge_cutoff=4.5, num_rbf=16, device='cpu'):
-#         self.edge_cutoff = edge_cutoff
-#         self.num_rbf = num_rbf
-#         self.device = device
-            
-#     def __call__(self, df):
-#         '''
-#         :param df: `pandas.DataFrame` of atomic coordinates
-#                     in the ATOM3D format
-        
-#         :return: `torch_geometric.data.Data` structure graph
-#         '''
-#         with torch.no_grad():
-#             coords = torch.as_tensor(df[['x', 'y', 'z']].to_numpy(),
-#                                      dtype=torch.float32, device=self.device)
-#             atoms = torch.as_tensor(list(map(_element_mapping, df.element)),
-#                                             dtype=torch.long, device=self.device)
-
-#             edge_index = torch_cluster.radius_graph(coords, r=self.edge_cutoff)
-
-#             edge_s, edge_v = _edge_features(coords, edge_index, 
-#                                 D_max=self.edge_cutoff, num_rbf=self.num_rbf, device=self.device)
-            
-#             chain_sequences = seq.get_chain_sequences(df)   
-#             return torch_geometric.data.Data(x=coords, atoms=atoms,
-#                                         edge_index=edge_index, edge_s=edge_s, 
-#                                         edge_v=edge_v, chain_sequences=chain_sequences)
-
-
-
 class BaseModel(nn.Module):
     '''
     A base 5-layer GVP-GNN for all ATOM3D tasks, using GVPs with 
@@ -198,7 +164,7 @@ class BaseModel(nn.Module):
             nn.Linear(2*ns, 1)
         )
     
-    def forward(self, batch, scatter_mean=True, dense=True):
+    def forward(self, batch, seq=None, scatter_mean=True, dense=True):
         '''
         Forward pass which can be adjusted based on task formulation.
         
@@ -209,11 +175,6 @@ class BaseModel(nn.Module):
         :param dense: if `True`, applies final dense layer to reduce embedding
                       to a single scalar; else, returns the embedding
         '''        
-
-        # # print(batch)
-        # batch.atoms
-        # chain_sequences = seq.get_chain_sequences(batch.atoms)
-        # print("chain_sequences :", chain_sequences)
 
         h_V = self.embed(batch.atoms)
         h_E = (batch.edge_s, batch.edge_v)
