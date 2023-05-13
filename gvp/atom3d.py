@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import pandas as pd
 import numpy as np
+import re
 from atom3d.datasets import LMDBDataset
 from .neighbors import get_subunits, get_negatives
 from torch.utils.data import IterableDataset
@@ -13,6 +14,7 @@ from .data import _normalize, _rbf
 import atom3d.protein.sequence as seq
 
 _NUM_ATOM_TYPES = 9
+_SEQ_EMBED_SIZE = 1024
 _element_mapping = lambda x: {
     'H' : 0,
     'C' : 1,
@@ -638,6 +640,13 @@ class RESModel(BaseModel):
     '''
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.embed = nn.Embedding(_NUM_ATOM_TYPES, _NUM_ATOM_TYPES)
+        
+        self.W_v = nn.Sequential(
+            LayerNorm((_SEQ_EMBED_SIZE, 0)),
+            GVP((_SEQ_EMBED_SIZE, 0), _DEFAULT_V_DIM,
+                activations=(None, None), vector_gate=True)
+        )
         ns, _ = _DEFAULT_V_DIM
         self.dense = nn.Sequential(
             nn.Linear(ns, 2*ns), nn.ReLU(inplace=True),
@@ -657,8 +666,11 @@ class RESTransform(BaseTransform):
     def __call__(self, df):
         data = super().__call__(df)
         with torch.no_grad():
-            chain_sequences = seq.get_chain_sequences(df)  
-            data.update({'chain_sequences': chain_sequences})
+            chain_sequences = seq.get_chain_sequences(df)
+            chain_sequence = chain_sequences[0][-1]
+            sequence_length = len(chain_sequence)
+            chain_sequence = " ".join(list(re.sub(r"[UZOB]", "X", chain_sequence)))
+            data.update({'chain_sequence': chain_sequence, 'sequence_length': sequence_length})
         return data
     
 ########################################################################

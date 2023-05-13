@@ -5,7 +5,7 @@
 #SBATCH --job-name=RunAtom3D
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=3
-#SBATCH --time=36:00:00
+#SBATCH --time=14:00:00
 #SBATCH --mem=32000M
 #SBATCH --output=../job_logs/slurm_output_%A.out
 
@@ -15,13 +15,13 @@ module load Anaconda3/2022.05
 
 source activate gvp
 
-srun python run_atom3d.py MSP --batch 2 --seed 0
-srun python run_atom3d.py MSP --batch 2 --seed 34
-srun python run_atom3d.py MSP --batch 2 --seed 42
+srun python run_atom3d.py RES --batch 32 --seed 0 --train-time 30 --val-time 10 --epochs 20
+# srun python run_atom3d.py RES --batch 32 --seed 34
+# srun python run_atom3d.py RES --batch 32 --seed 42
 
-srun python run_atom3d.py MSP --batch 2 --seed 0 --transformer
-srun python run_atom3d.py MSP --batch 2 --seed 34 --transformer
-srun python run_atom3d.py MSP --batch 2 --seed 42 --transformer
+# srun python run_atom3d.py MSP --batch 2 --seed 0 --transformer
+# srun python run_atom3d.py MSP --batch 2 --seed 34 --transformer
+# srun python run_atom3d.py MSP --batch 2 --seed 42 --transformer
 
 # TODO: uncomment when protein bert is installed
 # srun python run_atom3d.py SMP --batch 64 --seed 0 --transformer --protein_bert
