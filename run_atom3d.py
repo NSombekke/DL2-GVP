@@ -36,6 +36,7 @@ args = parser.parse_args()
 
 import gvp
 from atom3d.datasets import LMDBDataset
+from transformers import T5Tokenizer, T5EncoderModel
 import torch_geometric
 from functools import partial
 import gvp.atom3d
@@ -71,6 +72,18 @@ def main():
     trainset, valset, testset = map(dataloader, datasets)    
     model = get_model(args.task).to(device)
     
+    # Intialize protein_bert model
+    bert_model = None
+    bert_tokenizer = None
+    if args.protein_bert:
+        transformer_link = "Rostlab/prot_t5_xl_half_uniref50-enc"
+        print("Loading: {}".format(transformer_link))
+        bert_model = T5EncoderModel.from_pretrained(transformer_link)
+        bert_model.full() if device=='cpu' else bert_model.half() # only cast to full-precision if no GPU is available
+        bert_model = bert_model.to(device)
+        bert_model = bert_model.eval()
+        bert_tokenizer = T5Tokenizer.from_pretrained(transformer_link, do_lower_case=False)
+
     if args.test:
         print("--------testing--------")
         test(model, testset)
@@ -123,7 +136,7 @@ def train(model, trainset, valset):
     if not os.path.exists(root):
         os.makedirs(root)
     
-    for epoch in range(args.epochs):
+    for epoch in range(args.epochs):    
         # Model save path
         if args.transformer:
             path = os.path.join(root, f"{args.task}_{model_id}_{epoch}_TF.pt")

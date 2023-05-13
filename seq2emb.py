@@ -1,6 +1,6 @@
 import gvp.atom3d
 
-from transformers import BertModel, BertTokenizer, T5Tokenizer, T5EncoderModel
+from transformers import T5Tokenizer, T5EncoderModel
 import torch
 import re
 
