@@ -1,5 +1,7 @@
 # Mini-project
 
+![](./images/1200px-DHRS7B_homology_model.png)
+
 ## Introduction
 An analysis of the paper and its key components. Think about it as a nicely formatted review as you would see on OpenReview.net. It should contain one paragraph of related work as well.
 
