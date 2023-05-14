@@ -125,15 +125,20 @@ class BaseModel(nn.Module):
     
     This class should not be used directly. Instead, please use the
     task-specific models which extend BaseModel. (Some of these classes
-    may be aliases of BaseModel.)
+    may be aliases of BaseModel
+    .)
     
     :param num_rbf: number of radial bases to use in the edge embedding
     '''
-    def __init__(self, num_rbf=16, use_transformer=False):
+    def __init__(self, num_rbf=16, use_transformer=False, use_protein_bert=False):
         
         super().__init__()
         activations = (F.relu, None)
-        
+        if use_protein_bert:
+            self.use_protein_bert = True
+            _NUM_ATOM_TYPES = _SEQ_EMBED_SIZE
+        else:
+            _NUM_ATOM_TYPES = 9
         self.embed = nn.Embedding(_NUM_ATOM_TYPES, _NUM_ATOM_TYPES)
         
         self.W_e = nn.Sequential(
@@ -166,7 +171,7 @@ class BaseModel(nn.Module):
             nn.Linear(2*ns, 1)
         )
     
-    def forward(self, batch, seq=None, scatter_mean=True, dense=True):
+    def forward(self, batch, scatter_mean=True, dense=True):
         '''
         Forward pass which can be adjusted based on task formulation.
         
@@ -640,13 +645,6 @@ class RESModel(BaseModel):
     '''
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.embed = nn.Embedding(_NUM_ATOM_TYPES, _NUM_ATOM_TYPES)
-        
-        self.W_v = nn.Sequential(
-            LayerNorm((_SEQ_EMBED_SIZE, 0)),
-            GVP((_SEQ_EMBED_SIZE, 0), _DEFAULT_V_DIM,
-                activations=(None, None), vector_gate=True)
-        )
         ns, _ = _DEFAULT_V_DIM
         self.dense = nn.Sequential(
             nn.Linear(ns, 2*ns), nn.ReLU(inplace=True),

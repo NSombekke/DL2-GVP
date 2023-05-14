@@ -6,9 +6,8 @@ import re
 
 def get_sequence(trainset):
     for t in trainset:
-        sequence = t.chain_sequences[0][-1]
-        length = len(sequence)
-        sequence = " ".join(list(re.sub(r"[UZOB]", "X", sequence)))
+        sequence = t.chain_sequence
+        length = t.sequence_length
         return sequence, length
 
 def get_embedding(sequence, length, model, tokenizer, device):
@@ -18,7 +17,7 @@ def get_embedding(sequence, length, model, tokenizer, device):
     with torch.no_grad():
         embedding_rpr = model(input_ids=input_ids,attention_mask=attention_mask)
     emb = embedding_rpr.last_hidden_state[0,:length] # shape (length x 1024)
-    emb = emb.mean(dim=0) # shape (1024)
+    emb = emb.mean(dim=0).unsqueeze(0) # shape (1 x 1024)
     return emb
 
 if __name__ == "__main__":

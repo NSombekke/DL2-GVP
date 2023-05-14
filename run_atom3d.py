@@ -169,6 +169,7 @@ def loop(dataset, model, optimizer=None, max_time=None):
         if max_time and (time.time() - start) > 60*max_time: break
         if optimizer: optimizer.zero_grad()
         try:
+            sequence = get_sequence(batch)
             out = forward(model, batch, device)
         except RuntimeError as e:
             if "CUDA out of memory" not in str(e): raise(e)
@@ -206,6 +207,9 @@ def load(model, path):
             model.state_dict()[name].copy_(p)
         
 #######################################################################
+## TODO: Implement get_sequence
+def get_sequence(batch):
+    pass
 
 def get_label(batch, task, smp_idx=None):
     if type(batch) in [list, tuple]: batch = batch[0]
@@ -301,7 +305,7 @@ def get_model(task):
     if args.protein_bert:
         print("Using ProteinBert")
     return {
-        'RES' : gvp.atom3d.RESModel(use_transformer=args.transformer),
+        'RES' : gvp.atom3d.RESModel(use_transformer=args.transformer, use_protein_bert=args.protein_bert),
         'PPI' : gvp.atom3d.PPIModel(use_transformer=args.transformer),
         'RSR' : gvp.atom3d.RSRModel(use_transformer=args.transformer),
         'PSR' : gvp.atom3d.PSRModel(use_transformer=args.transformer),
