@@ -4,3 +4,5 @@
 - Luka Wong Chung
 - Wouter Haringhuizen
 - Erencan Tatar
+
+Read the report on [our Blogpost](./Blogpost.md).
