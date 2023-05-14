@@ -178,7 +178,9 @@ def loop(dataset, model, optimizer=None, max_time=None):
             continue
             
         label = get_label(batch, args.task, args.smp_idx)
-        loss_value = loss_fn(out, label)
+        # loss_value = loss_fn(out, label)
+        loss_value = loss_fn(out, label.float())
+
         total_loss += float(loss_value)
         total_count += 1
         
