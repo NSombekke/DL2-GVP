@@ -271,7 +271,10 @@ def get_datasets(task, lba_split=30):
     }[task]
         
     if task == 'RES':
-        split_path = 'data/atom3d-data/RES/splits/split-by-cath-topology/indices/'     
+        
+        # split_path = 'data/atom3d-data/RES/splits/split-by-cath-topology/indices/'     
+        split_path = 'data/atom3d-data/RES/raw/RES/data/indices/'  
+        
         trainset = gvp.atom3d.RESDataset(data_path, split_path=split_path+'train_indices.txt')
         valset = gvp.atom3d.RESDataset(data_path, split_path=split_path+'val_indices.txt')
         testset = gvp.atom3d.RESDataset(data_path, split_path=split_path+'test_indices.txt')
