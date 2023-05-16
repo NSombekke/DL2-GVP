@@ -23,6 +23,17 @@ Description of Novel contributions of our work.
 
 ## Results
 Results of our work with link to the code in Jupyter Notebook.
+| **Task** | **Metric** | **GVPGNN** | **GVPTransformer** |
+|----------|------------|------------|--------------------|
+| **SMP**  |            |            |                    |
+| **LBA**  |            |            |                    |
+| **LEP**  |            |            |                    |
+| **MSP**  |            |            |                    |
+| **RES**  |            |            |                    |
+
+| **Task** | **Metric** | **GVPTransformer** | **GVPTransformer + ProteinBERT** |
+|----------|------------|--------------------|----------------------------------|
+| **RES**  |            |                    |                                  |
 
 ## Conclusion
 Conclusion of our work.
