@@ -13,6 +13,8 @@ The paper "Learning from Protein Structure with Geometric Vector Perceptrons" pr
 
 In the next section, we will discuss the strengths and weaknesses of this approach and identify areas where further improvement is possible.
 
+# Methods 
+
 ## Weaknesses/Strengths/Potential
 Exposition of its weaknesses/strengths/potential which triggered your group to come up with a response.
 
