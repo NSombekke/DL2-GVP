@@ -13,7 +13,9 @@ In this review, we will provide an analysis of the key components of the paper, 
 
 Before proceeding further, it is essential to review related work in the area of learning from protein structure, setting the stage for the novel approach proposed by Jing et al.
 
-# Methods 
+### Related work
+
+## Methods 
 
 ## Weaknesses/Strengths/Potential
 The paper "Learning from Protein Structure with Geometric Vector Perceptrons" presents an innovative approach that addresses the limitations of existing network architectures for learning from protein structure as discussed in the introduction. While the proposed method introduces significant advancements, such as capturing geometric properties in GNNs, it is important to consider its strengths, weaknesses, and potential implications.
