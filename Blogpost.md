@@ -40,7 +40,7 @@ Description of Novel contributions of our work.
 
 ## Results
 Results of our work with link to the code in Jupyter Notebook.
-
+Every task has been trained on three seeds (0,34,42) on n epochs with the default params** (see appendix)   
 | **Task** | **Metric** | **GVPGNN** | **GVPTransformer** |
 |----------|------------|------------|--------------------|
 | **SMP**  |            |            |                    |
@@ -58,3 +58,7 @@ Conclusion of our work.
 
 ## Individual Student's Contribution
 Description of what each student's contribution to the project was.
+
+## Appendix
+
+
