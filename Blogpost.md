@@ -16,6 +16,13 @@ Before proceeding further, it is essential to review related work in the area of
 ### Related work
 
 ## Methods 
+## Dataset
+
+- Atom3d
+**RES**
+...
+**LBA**
+
 
 ## Weaknesses/Strengths/Potential
 The paper "Learning from Protein Structure with Geometric Vector Perceptrons" presents an innovative approach that addresses the limitations of existing network architectures for learning from protein structure as discussed in the introduction. While the proposed method introduces significant advancements, such as capturing geometric properties in GNNs, it is important to consider its strengths, weaknesses, and potential implications.
@@ -37,6 +44,10 @@ Additionally, the authors' idea of replacing the linear layers within the transf
 
 ## Novel Contribution
 Description of Novel contributions of our work.
+
+
+ 
+ - GVPTransformer from https://github.com/congliuUvA/gvp
 
 ## Results
 Results of our work with link to the code in Jupyter Notebook.
