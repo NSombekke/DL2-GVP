@@ -59,6 +59,8 @@ Conclusion of our work.
 ## Individual Student's Contribution
 Description of what each student's contribution to the project was.
 
+## References
+
 ## Appendix
 
 
