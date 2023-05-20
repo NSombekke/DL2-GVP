@@ -42,22 +42,22 @@ Description of Novel contributions of our work.
 #### Datasets and tasks
 In order to assess the quality of our reimplementation of the GVP architecture, as well as the GVP architecture with the added transformer, we used the ATOM3D set of datasets. ATOM3D is a collection of benchmark datasets for machine learning in structural biology. It concerns the three-dimensional structure of biomolecules, including proteins, small molecules, and nucleic acids and is designed as a benchmark for machine learning methods which operate on 3D molecular structure. The different datasets in ATOM3D also include specific tasks for our model to optimise and evaluate. For our research, we used the following sets of dataset and task from ATOM3D.
 
-**RES**
+**RES -**
 The RES dataset consists of atomic environments extracted from nonredundant structures in the PDB. This dataset is accompanied by a classification task where the goal is to predict the identity of the amino acid in the center of the environment based on all other atoms in that environment.
 
-**LBA**
+**LBA -**
 The LBA dataset is uses a curated database containing protein-ligand complexes from the PDB and their corresponding binding strengths. The task at hand is We predict pK = -log(K), where K is the binding affinity in Molar units.
 
-**SMP**
+**SMP -**
 The SMP dataset uses the QM9 dataset (Ruddigkeit et al., 2012; Ramakrishnan et al., 2014)(**still have to properly cite everything**), which contains structures and energetic, electronic, and thermodynamic properties for 134,000 stable small organic molecules, obtained from quantum-chemical calculations. The task here is to predict all molecular properties from the ground-state structure.
 
-**LEP**
+**LEP -**
 This is a novel dataset created by curating proteins from several families with both ”active” and ”inactive” state structures, and model in 527 small molecules with known activating or inactivating function using the program Glide. The corresponding task here can be formulated as a binary classification tsk where the goal is to predict whether or not a molecule bound to the structures will be an activator of the protein's function or not.
 
-**MSP**
+**MSP -**
 This is a novel dataset which was derived by collecting single-point mutations from the SKEMPI database (Jankauskaitė et al., 2019)(**properly cite**) and model each mutation into the structure to produce mutated structures. The task here can be seen as a binary classification task where we predict whether the stability of the complex increases as a result of the mutation.
 
-**TODO: cite **
+**TODO: cite**
 
  
  - GVPTransformer from https://github.com/congliuUvA/gvp
