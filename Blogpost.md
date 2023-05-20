@@ -58,6 +58,13 @@ This is a novel dataset created by curating proteins from several families with 
 **MSP -**
 This is a novel dataset which was derived by collecting single-point mutations from the SKEMPI database (Jankauskaitė et al., 2019)(**properly cite**) and model each mutation into the structure to produce mutated structures. The task here can be seen as a binary classification task where we predict whether the stability of the complex increases as a result of the mutation.
 
+
+#### Vector Gating
+Equivariant Graph Neural Networks for 3D Macromolecular Structure paper, toont aan dat ie beter is dus hebben vector gating aangezet bij elke experiment
+
+
+
+
 **TODO: cite**
 
  
@@ -92,5 +99,5 @@ Description of what each student's contribution to the project was.
 ## References
 
 ## Appendix
-
+Batch size and Hyper params used --> see notion
 
