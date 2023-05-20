@@ -67,15 +67,15 @@ Results of our work with link to the code in Jupyter Notebook.
 Every task has been trained on three seeds (0,34,42) on n epochs with the default params** (see appendix)   
 | **Task** | **Metric** | **GVPGNN** | **GVPTransformer** |
 |----------|------------|------------|--------------------|
-| **SMP**  |            |            |                    |
-| **LBA**  |            |            |                    |
-| **LEP**  |            |            |                    |
-| **MSP**  |            |            |                    |
-| **RES**  |            |            |                    |
+| **SMP**  |   mae      |            |                    |
+| **LBA**  |   RMSE     |            |                    |
+| **LEP**  | AUROC      |            |                    |
+| **MSP**  |  AUROC     |            |                    |
+| **RES**  | Accuracy   |            |                    |
 
 | **Task** | **Metric** | **GVPTransformer** | **GVPTransformer + ProteinBERT** |
 |----------|------------|--------------------|----------------------------------|
-| **RES**  |            |                    |                                  |
+| **RES**  |  Accuracy  |                    |                                  |
 
 ## Conclusion
 Conclusion of our work.
