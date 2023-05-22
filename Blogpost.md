@@ -117,7 +117,7 @@ Trainig was done on GPU, however the model with the Transformer
 integrated in the GVP is bigger and thus the GPU can't fit the same batch size.
 We performed experiments with multiple seeds and thus expect the batch size to not 
 influence the training process significantly.
-| **Task** | **GVPGNN** | **GVPTransformer** |
+| **Task batch size** | **GVPGNN** | **GVPTransformer** |
 |----------|------------|--------------------|
 | **SMP**  |            |                    |
 | **LBA**  |            |                    |
