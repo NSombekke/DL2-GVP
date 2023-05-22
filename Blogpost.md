@@ -85,7 +85,7 @@ Every task has been trained on three seeds (0,34,42) on n epochs with the defaul
 | **Task** | **Metric** | **GVPGNN** | **GVPTransformer** |
 |----------|------------|------------|--------------------|
 | **SMP**  |   mae      |            |                    |
-| **LBA**  |   RMSE     |1.64 +- 0.07|    1.58 +- 0.03    |
+| **LBA**  |   RMSE     |1.64 &pm; 0.07|   1.58 &pm; 0.03 |
 | **LEP**  |   AUROC    |            |                    |
 | **MSP**  |  AUROC     |            |                    |
 | **RES**  | Accuracy   |            |                    |
