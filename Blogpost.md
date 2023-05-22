@@ -106,6 +106,11 @@ Description of what each student's contribution to the project was.
 
 ## References
 
+- Atom3d
+- Equivariant Graph Neural Networks for 3D Macromolecular Structure
+- LEARNING  FROMPROTEINSTRUCTURE WITHGEOMETRICVECTORPERCEPTRONS
+- ...
+
 ## Appendix
 Batch size and Hyper params used --> see notion
 
