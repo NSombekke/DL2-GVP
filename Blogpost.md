@@ -64,11 +64,13 @@ This is a novel dataset which was derived by collecting single-point mutations f
 #### Vector Gating
 Equivariant Graph Neural Networks for 3D Macromolecular Structure paper, toont aan dat ie beter is dus hebben vector gating aangezet bij elke experiment
 
-
+#### Including Bert embedding
+...
 
 
 **TODO: cite**
 
+- Batch size different for GVPGNN vs GVP TransformerG
  
 
 ## Novel Contribution
@@ -84,7 +86,7 @@ Every task has been trained on three seeds (0,34,42) on n epochs with the defaul
 |----------|------------|------------|--------------------|
 | **SMP**  |   mae      |            |                    |
 | **LBA**  |   RMSE     |            |                    |
-| **LEP**  | AUROC      |            |                    |
+| **LEP**  |   AUROC    |            |                    |
 | **MSP**  |  AUROC     |            |                    |
 | **RES**  | Accuracy   |            |                    |
 
@@ -102,4 +104,12 @@ Description of what each student's contribution to the project was.
 
 ## Appendix
 Batch size and Hyper params used --> see notion
+
+| **Task** | **Metric** | **GVPGNN** | **GVPTransformer** |
+|----------|------------|------------|--------------------|
+| **SMP**  |   mae      |            |                    |
+| **LBA**  |   RMSE     |            |                    |
+| **LEP**  |   AUROC    |            |                    |
+| **MSP**  |  AUROC     |            |                    |
+| **RES**  | Accuracy   |            |                    |
 
