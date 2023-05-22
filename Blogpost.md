@@ -89,9 +89,18 @@ In the LEP task, the metric used for evaluation is the Area Under the Receiver O
 
 
 #### Vector Gating
+Author of ‘Equivariant Graph Neural …’ show that a modifiedGVP 
+shows performance improvement on almost all ATOM3D tasks.
+
+The original geometric vector perceptron(GVP) as described in Jing et al. (2021) has been modified in the last step before output vector features V’ such that we allow information to propagate from the scalar channels to the vector channels, see appendix …
+The vector gating modification, enables the GVP to inherit the Universal Approximation Property  of dense  layers  with  respect  to rotation- and reflection-equivariant functions F:Rν×3→R3, in addition to the approximation property forinvariantfunctions shown by Jing et al. (2021).
+
 Equivariant Graph Neural Networks for 3D Macromolecular Structure paper, toont aan dat ie beter is dus hebben vector gating aangezet bij elke experiment
 
+
 #### Transfer learning
+The atom3d tasks share a common underlying representation and problem domain, presenting an opportunity for transfer learning to improve performance on data-poor tasks. Therefore, the authors use transfer learning technique to leverage the model weight trained on data-rich (SMP,RES) settings to improve model training on data-poor (MSP, LEP) dataset. 
+
 We incorperate two levels of intergrating a BERT protein language model into the model, in order to boost the performance on the Residue Identity (RES) dataset.
 Amino acid substitution prediction is crucial for protein engineering. We use a new dataset extracted from PDB structures to classify amino acid identities based on surrounding structural environments, divided by protein topology classes. 
 The first level consists of using the BERT amino acid embedding <nn.Embedding> 
