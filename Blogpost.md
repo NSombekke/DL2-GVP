@@ -67,8 +67,8 @@ Additionally, the authors' idea of replacing the linear layers within the transf
 In order to assess the quality of our reimplementation of the GVP architecture, as well as the GVP architecture with the added transformer, we used the ATOM3D set of datasets. ATOM3D is a collection of benchmark datasets for machine learning in structural biology. It concerns the three-dimensional structure of biomolecules, including proteins, small molecules, and nucleic acids and is designed as a benchmark for machine learning methods which operate on 3D molecular structure. The different datasets in ATOM3D also include specific tasks for our model to optimise and evaluate. For our research, we used the following sets of dataset and task from ATOM3D.
 
 <ol>
-<li> <details><summary>Hello</summary><blockquote>
-  <details><summary>World</summary><blockquote>
+<li> <details><summary>**RES -**</summary><blockquote>
+  <details><summary>The RES dataset consists of atomic environments extracted from nonredundant structures in the PDB. This dataset is accompanied by a classification task where the goal is to predict the identity of the amino acid in the center of the environment based on all other atoms in that environment.</summary><blockquote>
     :smile:
   </blockquote></details>
 </blockquote></details>
@@ -86,9 +86,6 @@ In order to assess the quality of our reimplementation of the GVP architecture, 
 </blockquote></details>
 </li>
 </ol>
-
-**RES -**
-The RES dataset consists of atomic environments extracted from nonredundant structures in the PDB. This dataset is accompanied by a classification task where the goal is to predict the identity of the amino acid in the center of the environment based on all other atoms in that environment.
 
 **LBA -**
 The LBA dataset is uses a curated database containing protein-ligand complexes from the PDB and their corresponding binding strengths. The task at hand is We predict pK = -log(K), where K is the binding affinity in Molar units.
