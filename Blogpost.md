@@ -82,13 +82,13 @@ Description of Novel contributions of our work.
 ## Results
 Results of our work with link to the code in Jupyter Notebook.
 Every task has been trained on three seeds (0,34,42) on n epochs with the default params** (see appendix)   
-| **Task** | **Metric** | **GVPGNN** | **GVPTransformer** |
-|----------|------------|------------|--------------------|
-| **SMP**  |   mae      |            |                    |
-| **LBA**  |   RMSE     |1.64 &pm; 0.07|   1.58 &pm; 0.03 |
-| **LEP**  |   AUROC    |            |                    |
-| **MSP**  |  AUROC     |            |                    |
-| **RES**  | Accuracy   |            |                    |
+| **Task** | **Metric** |   **GVPGNN** | **GVPTransformer** |
+|----------|------------|--------------|--------------------|
+| **SMP**  |   mae      |              |                    |
+| **LBA**  |   RMSE     |1.64 &pm; 0.07|   1.58 &pm; 0.03   |
+| **LEP**  |   AUROC    |              |                    |
+| **MSP**  |  AUROC     |              |                    |
+| **RES**  | Accuracy   |              |                    |
 
 | **Task** | **Metric** | **GVPTransformer** | **GVPTransformer + ProteinBERT** |
 |----------|------------|--------------------|----------------------------------|
