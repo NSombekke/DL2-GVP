@@ -64,7 +64,11 @@ This is a novel dataset which was derived by collecting single-point mutations f
 #### Vector Gating
 Equivariant Graph Neural Networks for 3D Macromolecular Structure paper, toont aan dat ie beter is dus hebben vector gating aangezet bij elke experiment
 
-#### Including Bert embedding
+#### Including Bert for protein prediction
+We incorperate two levels of intergrating a BERT protein language model into the model, in order to boost the performance on the Residue Identity (RES) dataset.
+Amino acid substitution prediction is crucial for protein engineering. We use a new dataset extracted from PDB structures to classify amino acid identities based on surrounding structural environments, divided by protein topology classes. 
+The first level consists of using the BERT amino acid embedding 'nn.Embedding' 
+
 ...
 
 
