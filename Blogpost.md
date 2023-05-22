@@ -67,10 +67,9 @@ Equivariant Graph Neural Networks for 3D Macromolecular Structure paper, toont a
 #### Including Bert for protein prediction
 We incorperate two levels of intergrating a BERT protein language model into the model, in order to boost the performance on the Residue Identity (RES) dataset.
 Amino acid substitution prediction is crucial for protein engineering. We use a new dataset extracted from PDB structures to classify amino acid identities based on surrounding structural environments, divided by protein topology classes. 
-The first level consists of using the BERT amino acid embedding ${nn.Embedding}`     <code goes here> to boost the training process instead of random initilizing. 
-
-...
-
+The first level consists of using the BERT amino acid embedding <nn.Embedding> 
+to boost the training process instead of random initilizing. 
+The second level uses the masked language model function to predict the _[MASK]_ representing the amino acid we search for the RES data task. We combine the prediction of the GVPTransformer with the BERT prediction to ultimately end up with one amino acid.
 
 **TODO: cite**
 
