@@ -25,7 +25,7 @@ The basic idea behind GVPs is to represent protein structures as sets of geometr
 
 In traditional neural networks, protein structures are typically represented using fixed-length feature vectors or matrices. This fixed-length feature vector contains less information about the protein-structure than the GVP's and therefore limits the capability of the neural network.
 
-![](./images/Screenshot from 2023-05-22 12-44-04.png.png)
+![](./images/GVP_layer.png)
 
 
 
