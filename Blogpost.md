@@ -24,6 +24,26 @@ In traditional neural networks, protein structures are typically represented usi
 
 ![](./images/GVP_layer.png)
 
+At its core, a Geometric Vector Perceptron (GVP) is designed to process both scalar (bottom-left in the image) and vector features (top-left in image) and compute new features based on them. The GVP consists of several key components: linear transformations, non-linearities, and concatenation.
+
+Let's go through the steps of how a GVP works:
+
+Input: The GVP takes as input a tuple (s, V), where s represents scalar features and V represents vector features. The scalar features are typically represented as a vector in ℝ^n, and the vector features are represented as a matrix in ℝ^(ν×3), where ν is the number of vectors and each vector has three components (x, y, z).
+
+Linear transformations: The GVP applies separate linear transformations to the scalar and vector features. It uses two sets of weight matrices: W_m for scalar features and W_h for vector features. The linear transformations can be represented as s_h = W_m s and V_h = W_h V, where s_h represents the transformed scalar features and V_h represents the transformed vector features.
+
+Concatenation: Before further processing the scalar features, the L2 norm of the transformed vector features V_h is calculated. This allows the GVP to extract rotation-invariant information from the input vectors. The L2 norm of each vector is computed row-wise, resulting in a vector s_h+n with dimensions (h+n), where h represents the maximum value between ν and µ (the output dimensionality of the vector features).
+
+Non-linearities: After concatenation, non-linear activation functions are applied to both the transformed scalar features s_h and the transformed vector norm features s_h+n. The specific non-linearities used can vary, but commonly used activation functions include sigmoid, tanh, or ReLU.
+
+Vector nonlinearity: The transformed vector features V_h are further processed using a separate linear transformation, W_µ. This transformation is followed by an element-wise multiplication with the vector norm features s_h+n. This vector nonlinearity operation scales the vectors based on their corresponding norms, allowing control over the output dimensionality independently of the number of norms extracted.
+
+Output: Finally, the GVP outputs the computed features as (s_0, V_0), where s_0 represents the final scalar features and V_0 represents the final vector features.
+
+The GVP architecture is designed to possess desirable properties such as equivariance and invariance. Equivariance means that the vector outputs of the GVP are transformed in the same way as the input vectors under arbitrary compositions of rotations and reflections in 3D space. Invariance means that the scalar outputs of the GVP remain unchanged under the same transformations.
+
+By leveraging linear transformations, non-linearities, and concatenation, GVPs are able to capture geometric relationships and extract rotation-invariant information from vector features. This makes them useful for various tasks that involve analyzing and reasoning about geometric data.
+
 
 
 #### Weaknesses
