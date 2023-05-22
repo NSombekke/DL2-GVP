@@ -105,11 +105,17 @@ Description of what each student's contribution to the project was.
 ## Appendix
 Batch size and Hyper params used --> see notion
 
-| **Task** | **Metric** | **GVPGNN** | **GVPTransformer** |
-|----------|------------|------------|--------------------|
-| **SMP**  |   mae      |            |                    |
-| **LBA**  |   RMSE     |            |                    |
-| **LEP**  |   AUROC    |            |                    |
-| **MSP**  |  AUROC     |            |                    |
-| **RES**  | Accuracy   |            |                    |
+*Batch sizes for different model architectures*. 
+Trainig was done on GPU, however the model with the Transformer 
+integrated in the GVP is bigger and thus the GPU can't fit the same batch size.
+We performed experiments with multiple seeds and thus expect the batch size to not 
+influence the training process significantly.
+| **Task** | **GVPGNN** | **GVPTransformer** |
+|----------|------------|--------------------|
+| **SMP**  |            |                    |
+| **LBA**  |            |                    |
+| **LEP**  |            |                    |
+| **MSP**  |            |                    |
+| **RES**  |            |                    |
 
+GPU specs: 
