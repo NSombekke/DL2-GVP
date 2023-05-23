@@ -10,7 +10,8 @@ Read the report on [our Blogpost](./Blogpost.md).
 
 <code to run files and jobs >  .job files
 
-## Introduction
+    
+    ## Introduction
 
 This repo uses the original Geometric Vector Perceptrons [GVP](https://github.com/drorlab/gvp-pytorch/tree/main), a rotation-equivariant GNN, and combines a TransformerConv layer attenmpting to further improve the the baseline model.
 Scripts for training / testing / sampling on protein design and training / testing on all ATOM3D tasks are provided.
@@ -22,19 +23,12 @@ We provide a blogpost.md and GVP.ipynb walking through all the experiments.
     - [Requirements](#composer)
     - [Environment](#Environment)
     - [Download Atom3D dataset](#download-dataset)
-- [Run experiments](#typo3-setup)
-    - [Database setup](#database-setup)
-    - [Security](#security)
-- [License](#license)
+- [Run experiments](#Run-experiments)
+    - [aa](#database-setup)
 - [Links](#links)
 
 ## Installation
-
-This document is for the latest Aimeos TYPO3 **22.10 release and later**.
-
-- stable release: 23.04 (TYPO3 12 LTS)
-- LTS release: 22.10 (TYPO3 11 LTS)
-
+For general usage and deeper understand of individual files we refer back to the original readme [GVP](https://github.com/drorlab/gvp-pytorch/tree/main)
 ### Requirements
 
 
@@ -57,6 +51,8 @@ In order to test a correct install run  `test_equivariance.py`
 
 ### Download-dataset
 In order to download the ATOM3d dataset with splits we use the `download_atomdataset.job`
+
+## Run-experiments
 
 
 
