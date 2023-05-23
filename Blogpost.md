@@ -100,7 +100,7 @@ This is a novel dataset created by curating proteins from several families with 
 This is a novel dataset which was derived by collecting single-point mutations from the SKEMPI database (Jankauskaitė et al., 2019)(**properly cite**) and model each mutation into the structure to produce mutated structures. The task here can be seen as a binary classification task where we predict whether the stability of the complex increases as a result of the mutation.
 
 #### Evaluation metric
-Each task above has 
+Since the data and tasks that are described above differ, they use different evaluation metrics to assess the quality of the model
 
 the metric used for evaluation is the Mean Absolute Error (MAE). MAE 
 In the LEP task, the metric used for evaluation is the Area Under the Receiver Operating Characteristic Curve (AUROC). AUROC measures the performance of a binary classification model by plotting the true positive rate against the false positive rate. A higher AUROC value signifies better classification performance, with a perfect classifier having an AUROC value of 1.0. The specific AUROC values for the GVPGNN and GVPTransformer models are not provided.
