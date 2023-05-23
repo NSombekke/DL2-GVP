@@ -125,14 +125,7 @@ The vector gating modification, enables the GVP to inherit the Universal Approxi
 Equivariant Graph Neural Networks for 3D Macromolecular Structure paper, toont aan dat ie beter is dus hebben vector gating aangezet bij elke experiment
 
 
-#### Transfer learning
-The atom3d tasks share a common underlying representation and problem domain, presenting an opportunity for transfer learning to improve performance on data-poor tasks. Therefore, the authors use transfer learning technique to leverage the model weight trained on data-rich (SMP,RES) settings to improve model training on data-poor (MSP, LEP) dataset. 
 
-We incorperate two levels of intergrating a BERT protein language model into the model, in order to boost the performance on the Residue Identity (RES) dataset.
-Amino acid substitution prediction is crucial for protein engineering. We use a new dataset extracted from PDB structures to classify amino acid identities based on surrounding structural environments, divided by protein topology classes. 
-The first level consists of using the BERT amino acid embedding <nn.Embedding> 
-to boost the training process instead of random initilizing. 
-The second level uses the masked language model function to predict the _[MASK]_ representing the amino acid we search for the RES data task. We combine the prediction of the GVPTransformer with the BERT prediction to ultimately end up with one amino acid.
 
 **TODO: cite**
 
@@ -141,7 +134,19 @@ The second level uses the masked language model function to predict the _[MASK]_
 
 ## Novel Contribution
 Description of Novel contributions of our work.
-- Tested the integration of TransformeConv in GVP model on MQA Cong,  - GVPTransformer from https://github.com/congliuUvA/gvp
+
+### TransformerConv
+- Tested the integration of `torch geometric`TransformeConv in GVP model on MQA Cong,  - GVPTransformer from https://github.com/congliuUvA/gvp
+
+### BERT language model 
+The atom3d tasks share a common underlying representation and problem domain, presenting an opportunity for transfer learning to improve performance on data-poor tasks. Therefore, the authors use transfer learning technique to leverage the model weight trained on data-rich (SMP,RES) settings to improve model training on data-poor (MSP, LEP) dataset. 
+
+We incorperate two levels of intergrating a BERT protein language model into the model, in order to boost the performance on the Residue Identity (RES) dataset.
+Amino acid substitution prediction is crucial for protein engineering. We use a new dataset extracted from PDB structures to classify amino acid identities based on surrounding structural environments, divided by protein topology classes. 
+The first level consists of using the BERT amino acid embedding <nn.Embedding> 
+to boost the training process instead of random initilizing. 
+The second level uses the masked language model function to predict the _[MASK]_ representing the amino acid we search for the RES data task. We combine the prediction of the GVPTransformer with the BERT prediction to ultimately end up with one amino acid.
+
 - Tested with Bert embeddings initialization on sequence prediction task
 - Tested with ensemble model with Bert amino acid mask prediction on sequence prediction task
 
