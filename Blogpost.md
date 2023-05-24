@@ -161,6 +161,11 @@ Every task has been trained on three seeds (0,34,42) on n epochs with the defaul
 | **MSP**  |  AUROC     | **0.69 &pm;	0.03**   |      0.67	&pm; 0.01              |
 | **RES**  | Accuracy   |              |                    |
 
+
+
+<iframe src="https://wandb.ai/dl2-gvp-team34/gvp?workspace=user-etatar-atdamen" style="border:none;height:1024px;width:100%">
+
+
 | **Task** | **Metric** | **GVPTransformer** | **GVPTransformer + ProteinBERT** |
 |----------|------------|--------------------|----------------------------------|
 | **RES**  |  Accuracy  |                    |                                  |
