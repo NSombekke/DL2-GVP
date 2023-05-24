@@ -165,6 +165,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 
 
 ### What is the influence of the number of transformer head?
+![](./images/Transformer8_16heads_v2.png)
 
 
 
