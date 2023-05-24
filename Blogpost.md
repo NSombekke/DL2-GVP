@@ -153,6 +153,7 @@ The second level uses the masked language model function to predict the _[MASK]_
 ## Results
 Results of our work with link to the code in Jupyter Notebook.
 Every task has been trained on three seeds (0,34,42) on n epochs with the default params** (see appendix)   
+Below are the best performing model checkpoint performance on the evaluation dataset.
 | **Task** | **Metric** |   **GVPGNN** | **GVPTransformer** |
 |----------|------------|--------------|--------------------|
 | **SMP**  |   mae      |  **18.64 &pm; 0.20** |    18.77 &pm; 	0.19                |
@@ -163,8 +164,16 @@ Every task has been trained on three seeds (0,34,42) on n epochs with the defaul
 
 
 
+### What is the influence of the number of transformer head?
 
-![](./images/Transformer8_16heads.png)
+
+
+### How does the original GVP compare with the _Transformer_ implementation?
+
+
+
+
+<!-- ![](./images/Transformer8_16heads.png) -->
 
 
 | **Task** | **Metric** | **GVPTransformer** | **GVPTransformer + BERT embedding** |**GVPTransformer + ProteinBERT prediction** |
