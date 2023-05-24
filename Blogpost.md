@@ -172,7 +172,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 ### How does the original GVP compare with the _Transformer_ implementation?
 
 ![]()
-<img src="./images/Trans_tov_GVP.png" alt= “” width="300" height="100">
+<img src="./images/Trans_tov_GVP.png" alt= “” width="700" height="300">
 
 
 
