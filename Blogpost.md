@@ -136,7 +136,7 @@ Equivariant Graph Neural Networks for 3D Macromolecular Structure paper, toont a
 Description of Novel contributions of our work.
 
 ### TransformerConv
-- Tested the integration of `torch geometric`TransformeConv in GVP model on MQA Cong,  - GVPTransformer from https://github.com/congliuUvA/gvp
+- Tested the integration of [`torch geometric`](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.TransformerConv.html?highlight=TransformerConv#torch_geometric.nn.conv.TransformerConv) TransformeConv in GVP model on MQA Cong,  - GVPTransformer from https://github.com/congliuUvA/gvp
 
 ### BERT language model 
 The atom3d tasks share a common underlying representation and problem domain, presenting an opportunity for transfer learning to improve performance on data-poor tasks. Therefore, the authors use transfer learning technique to leverage the model weight trained on data-rich (SMP,RES) settings to improve model training on data-poor (MSP, LEP) dataset. 
