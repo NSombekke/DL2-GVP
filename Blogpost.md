@@ -176,7 +176,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 
 
 
-<!-- ![](./images/Transformer8_16heads.png) -->
+![](./images/Transformer8_16heads.png)
 
 
 ### Longer training
@@ -184,7 +184,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 - Can we conclude that using TransformerConv gives the learning process a head start?
 
 
-<!-- ![](./images/GVP_longer_training.png) -->
+![](./images/GVP_longer_training.png)
 
 
 
