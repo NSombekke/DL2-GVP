@@ -171,6 +171,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 
 ### How does the original GVP compare with the _Transformer_ implementation?
 
+![](./images/Trans_tov_GVP.png)
 
 
 
