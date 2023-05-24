@@ -167,9 +167,9 @@ Every task has been trained on three seeds (0,34,42) on n epochs with the defaul
 ![](./images/Transformer8_16heads.png)
 
 
-| **Task** | **Metric** | **GVPTransformer** | **GVPTransformer + ProteinBERT** |
-|----------|------------|--------------------|----------------------------------|
-| **RES**  |  Accuracy  |                    |                                  |
+| **Task** | **Metric** | **GVPTransformer** | **GVPTransformer + BERT embedding** |**GVPTransformer + ProteinBERT prediction** |
+|----------|------------|--------------------|----------------------------------|----------------------------------|
+| **RES**  |  Accuracy  |                    |                                  |                                   |
 
 ## Conclusion
 Conclusion of our work.
