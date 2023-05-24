@@ -163,8 +163,9 @@ Every task has been trained on three seeds (0,34,42) on n epochs with the defaul
 
 
 
+<div>
 <iframe src="https://wandb.ai/dl2-gvp-team34/gvp?workspace=user-etatar-atdamen" style="border:none;height:1024px;width:100%">
-
+</div>
 
 | **Task** | **Metric** | **GVPTransformer** | **GVPTransformer + ProteinBERT** |
 |----------|------------|--------------------|----------------------------------|
