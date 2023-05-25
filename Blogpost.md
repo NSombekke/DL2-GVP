@@ -190,6 +190,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 | **RES**  | Accuracy   |              |                    |
 
 
+-- **INCLUDE BASELINE GVP or GVPTransformer with 0 epochs of learning!!!**
 
 ### What is the influence of the number of transformer head?
 ![](./images/Transformer8_16heads_v2.png)
