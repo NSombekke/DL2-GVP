@@ -13,9 +13,35 @@ In this review, we will provide an analysis of the key components of the paper, 
 
 Before proceeding further, it is essential to review related work in the area of learning from protein structure, setting the stage for the novel approach proposed by Jing et al.
 
+### The TransformerConv explained
 
-## Weaknesses/Strengths/Potential
-The paper "Learning from Protein Structure with Geometric Vector Perceptrons" presents an innovative approach that addresses the limitations of existing network architectures for learning from protein structure as discussed in the introduction. While the proposed method introduces significant advancements, such as capturing geometric properties in GNNs, it is important to consider its strengths, weaknesses, and potential implications.
+The TransformerConv is component that can be used in graph neural networks (GNNs) and uses the ground breaking Transformer architecture, originally proposed for natural language processing tasks, and adapts it for graph data.
+
+The core operation of TransformerConv is the multi-head dot product attention mechanism. It calculates attention coefficients $\alpha_{ij}$ between pairs of nodes to determine the importance of information flow from one node to another. The attention coefficients are computed as follows:
+
+$\alpha_{ij} = softmax((W1 * x_i)^T * (W2 * x_j) / sqrt(d))$
+
+Here, $W1$ and $W2$ are learnable weight matrices, $x_i$ and $x_j$ are the node features of nodes $i$ and $j$, and $d$ is the dimensionality of the node features.
+The attention coefficients control how much information from neighbouring nodes contributes to the updated representation of a node. Higher attention coefficients imply stronger information flow between nodes.
+
+The updated representation of node $i$, $x_i'$, is computed as follows:
+
+$x_i' = W3 * x_i + ∑(\alpha_{ij} * W4 * x_j)$
+
+Here, $W3$ and $W4$ are learnable weight matrices.
+
+The TransformerConv supports multiple heads of attention, allowing it to capture diverse relationships and dependencies in the graph. The attention outputs from each head can be either concatenated or averaged, controlled by the concat parameter. Concatenation allows for increased expressiveness, while averaging reduces the dimensionality of the output.
+
+A \beta parameter is introduced as an additional mechanism to combine aggregation and skip information. It computes a learnable weight, $\beta_i$, for each node $i$ based on its transformed node features and aggregated features from its neighbours. The updated representation of node $i$ becomes:
+
+$x_i' = \beta_i * W1 * x_i + (1 - \beta_i) * (∑(\alpha_{ij} * W2 * x_j))$
+
+Here, $\beta_i$ is computed using a sigmoid function applied to a concatenation of the transformed node features, aggregated features, and their difference.
+
+By dropping out attention coefficients during training, it allows each node of the model to be exposed to a stochastically sampled neighbourhood. This aids in regularization and reduces overfitting.
+
+Overall, the TransformerConv operator in the paper extends the Transformer architecture to handle graph-structured data. It leverages multi-head attention, optional edge features, and additional mechanisms like concatenation, averaging, and weighted aggregation to capture meaningful relationships and propagate information effectively through the graph. By adapting the powerful Transformer model to graph data, TransformerConv enables improved performance in various graph-based tasks, including node classification, link prediction, and graph generation.
+
 
 ### Geometric vector perceptrons (GVP) explained
 The basic idea behind GVPs is to represent protein structures as sets of geometric vectors. Each vector in the set corresponds to a specific geometric feature of the protein, such as the position of an atom or the orientation of a molecular bond. These vectors capture the spatial relationships and characteristics of the protein's constituent parts.
@@ -44,7 +70,8 @@ The GVP architecture is designed to possess desirable properties such as equivar
 
 By leveraging linear transformations, non-linearities, and concatenation, GVPs are able to capture geometric relationships and extract rotation-invariant information from vector features. This makes them useful for various tasks that involve analyzing and reasoning about geometric data.
 
-
+## Weaknesses/Strengths/Potential
+The paper "Learning from Protein Structure with Geometric Vector Perceptrons" presents an innovative approach that addresses the limitations of existing network architectures for learning from protein structure as discussed in the introduction. While the proposed method introduces significant advancements, such as capturing geometric properties in GNNs, it is important to consider its strengths, weaknesses, and potential implications.
 
 #### Weaknesses
 One of the primary weaknesses of the proposed method lies in the use of geometric vector perceptrons (GVP) as the primary building block for the network architecture. Although GVPs offer the advantage of operating on collections of Euclidean vectors, they may not fully capture the complexity and long-range dependencies present in protein structure data. This limitation could potentially hinder the model's ability to learn intricate spatial relationships within protein structures accurately.
