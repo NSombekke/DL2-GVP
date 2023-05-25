@@ -218,6 +218,11 @@ Below are the best performing model checkpoint performance on the evaluation dat
 |----------|------------|--------------------|----------------------------------|----------------------------------|
 | **RES**  |  Accuracy  |                    |                                  |                                   |
 
+
+### Not all tasks comparable with original paper
+- Gekeken naar de paper equivar....   zien we dat sommige metrics zoals RES bij ons veel slechter zijn, wat suggereert dat wij niet lang of verkeerd krijgen 
+of dat zij hun modellen van 2/3 dagen per model hebben getrained. Maar we kunnen zeggen over onze resultaten gegeven de hoeveelheid training gehad is ... beter dan ...
+
 ## Conclusion
 Conclusion of our work.
 
