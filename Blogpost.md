@@ -181,14 +181,15 @@ The second level uses the masked language model function to predict the _[MASK]_
 Results of our work with link to the code in Jupyter Notebook.
 Every task has been trained on three seeds (0,34,42) on n epochs with the default params** (see appendix)   
 Below are the best performing model checkpoint performance on the evaluation dataset.
-| **Task** | **Metric** |   **GVPGNN** | **GVPTransformer** |
-|----------|------------|--------------|--------------------|
-| **SMP**  |   mae      |  **18.64 &pm; 0.20** |    18.77 &pm; 	0.19                |
-| **LBA**  |   RMSE     |1.64 &pm; 0.07| **1.58 &pm; 0.03** |
-| **LEP**  |   AUROC    |0.53 &pm; 0.06| **0.61 &pm; 0.04** |
-| **MSP**  |  AUROC     | **0.69 &pm;	0.03**   |      0.67	&pm; 0.01              |
-| **RES**  | Accuracy   |              |                    |
-
+| **Task** | **Metric** | **GVPGNN**       | **GVPTransformer** |
+|----------|------------|------------------|--------------------|
+| **SMP**  | mae        | **18.64 ± 0.20** | 18.77 ± 	0.19       |
+| **LBA**  | RMSE       | 1.64 ± 0.07      | **1.58 ± 0.03**    |
+| **LEP**  | AUROC      | 0.53 ± 0.06      | **0.61 ± 0.04**    |
+|          | AUPRC      |                  |                    |
+| **MSP**  | AUROC      | **0.69 ±	0.03**   | 0.67	± 0.01         |
+|          | AUPRC      | 0.25±0,03        | 0,24±0,03          |
+| **RES**  | Accuracy   |                  |                    |
 
 -- **INCLUDE BASELINE GVP or GVPTransformer with 0 epochs of learning!!!**
 
