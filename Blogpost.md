@@ -26,7 +26,7 @@ The attention coefficients control how much information from neighbouring nodes 
 
 The updated representation of node $i$, $x_i'$, is computed as follows:
 
-$x_i' = W3 * x_i + ∑(\alpha_{ij} * W4 * x_j)$
+$$x_i' = W3 * x_i + ∑(\alpha_{ij} * W4 * x_j)$$
 
 Here, $W3$ and $W4$ are learnable weight matrices.
 
@@ -34,7 +34,7 @@ The TransformerConv supports multiple heads of attention, allowing it to capture
 
 A \beta parameter is introduced as an additional mechanism to combine aggregation and skip information. It computes a learnable weight, $\beta_i$, for each node $i$ based on its transformed node features and aggregated features from its neighbours. The updated representation of node $i$ becomes:
 
-$x_i' = \beta_i * W1 * x_i + (1 - \beta_i) * (∑(\alpha_{ij} * W2 * x_j))$
+$$x_i' = \beta_i * W1 * x_i + (1 - \beta_i) * (∑(\alpha_{ij} * W2 * x_j))$$
 
 Here, $\beta_i$ is computed using a sigmoid function applied to a concatenation of the transformed node features, aggregated features, and their difference.
 
