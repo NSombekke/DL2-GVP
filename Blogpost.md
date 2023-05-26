@@ -54,7 +54,7 @@ At its core, a Geometric Vector Perceptron (GVP) is designed to process both sca
 
 Let's go through the steps of how a GVP works:
 
-Input: The GVP takes as input a tuple (s, V), where s represents scalar features and V represents vector features. The scalar features are typically represented as a vector in ℝ^n, and the vector features are represented as a matrix in ℝ^(ν×3), where ν is the number of vectors and each vector has three components (x, y, z).
+> Input: The GVP takes as input a tuple (s, V), where s represents scalar features and V represents vector features. The scalar features are typically represented as a vector in ℝ^n, and the vector features are represented as a matrix in ℝ^(ν×3), where ν is the number of vectors and each vector has three components (x, y, z).
 
 Linear transformations: The GVP applies separate linear transformations to the scalar and vector features. It uses two sets of weight matrices: W_m for scalar features and W_h for vector features. The linear transformations can be represented as s_h = W_m s and V_h = W_h V, where s_h represents the transformed scalar features and V_h represents the transformed vector features.
 
