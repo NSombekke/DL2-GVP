@@ -189,23 +189,23 @@ Below are the best performing model checkpoint performance on the evaluation dat
 |          | AUPRC      |                  |                    |
 | **MSP**  | AUROC      | **0.69 ±	0.03**   | 0.67	± 0.01         |
 |          | AUPRC      | 0.25±0,03        | 0,24±0,03          |
-| **RES**  | Accuracy   |                  |                    |
 
 -- **INCLUDE BASELINE GVP or GVPTransformer with 0 epochs of learning!!!**
 
-### What is the influence of the number of transformer head?
+### Residue Identity (RES) dataset
+#### What is the influence of the number of transformer head?
 ![](./images/Transformer8_16heads_v2.png)
 
 
 
-### How does the original GVP compare with the _Transformer_ implementation?
+#### How does the original GVP compare with the _Transformer_ implementation?
 
 ![]()
 <img src="./images/Trans_tov_GVP.png" alt= “” width="700" height="300">
 
 
 
-### Longer training
+#### Longer training
 - Figure above does not tell full story. Looks like a stall in model learning, but can't be sure
 - Can we conclude that using TransformerConv gives the learning process a head start?
 
@@ -219,9 +219,11 @@ Below are the best performing model checkpoint performance on the evaluation dat
 | **RES**  |  Accuracy  |                    |                                  |                                   |
 
 
+
 ### Not all tasks comparable with original paper
 - Gekeken naar de paper equivar....   zien we dat sommige metrics zoals RES bij ons veel slechter zijn, wat suggereert dat wij niet lang of verkeerd krijgen 
 of dat zij hun modellen van 2/3 dagen per model hebben getrained. Maar we kunnen zeggen over onze resultaten gegeven de hoeveelheid training gehad is ... beter dan ...
+- Andere atom3d metric zijn wel vergelijkbaar met originele report.
 
 ## Conclusion
 Conclusion of our work.
