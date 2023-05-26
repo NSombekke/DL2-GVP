@@ -96,6 +96,13 @@ srun python run_atom3d.py LEP --batch 2 --seed 34 --transformer
 srun python run_atom3d.py LEP --batch 2 --seed 42 --transformer
 ```
 This saves each model at every epoch to their specific directory (i.e. /models/LEP/Transformer/32/LEP_0000000000.0000000_00_TF.pt). In the output file from this job you can find at what epoch the model with the lowest validation loss was saved, which can be used for the evaluation.
+    
+### Testing
+To evaluate a model, simply use the `--test` argument with `run_atom3d.py` and give the path to the model that you want to evaluate. See below an example of what this would look like for a model trained with TransformerConv on the LEP task with seed 42:
+```
+python run_atom3d.py LEP --test models/LEP/Transformer/42/LEP_0000000000.0000000_00_TF.pt --seed 42 --batch 2 --transformer
+```
+    
 ## Links
 
 
