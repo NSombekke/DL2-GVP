@@ -168,6 +168,10 @@ The attention coefficients control how much information from neighbouring nodes 
 
 Overall, the TransformerConv operator in the paper extends the Transformer architecture to handle graph-structured data. It leverages multi-head attention, optional edge features, and additional mechanisms like concatenation, averaging, and weighted aggregation to capture meaningful relationships and propagate information effectively through the graph. By adapting the powerful Transformer model to graph data, TransformerConv enables improved performance in various graph-based tasks, including node classification, link prediction, and graph generation.
 
+#### How it is intergrated in the original GVP-GNN
+TODO ERRIE!!!
+
+
 
 ### BERT language model 
 The atom3d tasks share a common underlying representation and problem domain, presenting an opportunity for _transfer learning_ to improve performance on data-poor tasks. Therefore, the authors use transfer learning technique to leverage the model weight trained on data-rich (SMP,RES) settings to improve model training on data-poor (MSP, LEP) dataset. 
@@ -232,7 +236,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 >  
 > **TODO** **MISSCHIEN DENKFOUT van mij maar, IDK**
 
-| **Task** | **Metric** | Epochs | **GVP-GNN** | **GVPTransformer** | **GVPTransformer + BERT embedding** | **GVPTransformer + ProteinBERT prediction** |
+| **Task** | **Metric** | Epochs | **GVP-GNN** | **GVP-GNN Transformer** | **GVP-GNN Transformer + BERT embedding** | **GVP-GNN Transformer + ProteinBERT prediction** |
 |----------|------------|--------|-------------|--------------------|-------------------------------------|---------------------------------------------|
 | **RES**  | Accuracy   | 5      | 0.160       | 0.156              | 0.082                               | X                                           |
 |          |            | 12     | 0.247       |                    | 0.209                               | X                                           |
@@ -240,10 +244,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 > GVPTransformer + ProteinBERT prediction
 
 
-### Not all tasks comparable with original paper
-- Andere atom3d metric zijn wel vergelijkbaar met originele report.
-
-
+### Baseline comparison original paper
 - **Important:** 
 The table 2 in the paper _Equivariant Graph Neural Networks for 3D Macromolecular Structure_ model performances of 0.451,0.082,0.072, 0.527
 on the RES dataset with the models CNN, GNN, ENN, GVP-GNN respectively are shown. We were bounded by limitations on training time and batch size, potentially 
