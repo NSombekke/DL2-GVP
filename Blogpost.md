@@ -176,12 +176,13 @@ TODO ERRIE!!!
 ```
 GVP(nn.Module):
   layer = [
-            TransformerConv(MessagePassing), 
+            TransformerConv(), 
             ...
             ]
             
 TransformerConv(MessagePassing):
 
+  # Instead of dense layers
   gvp_ = gvp.GVP(in_dims, out_dims,
             activations=(F.relu, None), vector_gate=True)
             
