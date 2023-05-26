@@ -203,7 +203,6 @@ Below are the best performing model checkpoint performance on the evaluation dat
 ![](./images/Transformer8_16heads_v2.png)
 
 
-
 #### How does the original GVP compare with the _Transformer_ implementation?
 
 ![]()
@@ -240,14 +239,25 @@ Below are the best performing model checkpoint performance on the evaluation dat
 > GVPTransformer + ProteinBERT prediction
 
 
-
 ### Not all tasks comparable with original paper
-- Gekeken naar de paper equivar....   zien we dat sommige metrics zoals RES bij ons veel slechter zijn, wat suggereert dat wij niet lang of verkeerd krijgen 
-of dat zij hun modellen van 2/3 dagen per model hebben getrained. Maar we kunnen zeggen over onze resultaten gegeven de hoeveelheid training gehad is ... beter dan ...
 - Andere atom3d metric zijn wel vergelijkbaar met originele report.
 
+
+- **Important:** 
+The table 2 in the paper _Equivariant Graph Neural Networks for 3D Macromolecular Structure_ model performances of 0.451,0.082,0.072, 0.527
+on the RES dataset with the models CNN, GNN, ENN, GVP-GNN respectively are shown. We were bounded by limitations on training time and batch size, potentially 
+causing such big differences in the GVP-GNN baseline (0.247 / 0.527).
+
+- Gekeken naar de paper equivar....   zien we dat sommige metrics zoals RES bij ons veel slechter zijn, wat suggereert dat wij niet lang of verkeerd krijgen 
+of dat zij hun modellen van 2/3 dagen per model hebben getrained. Maar we kunnen zeggen over onze resultaten gegeven de hoeveelheid training gehad is ... beter dan ...
+
 ## Conclusion
-Conclusion of our work.
+
+> Does Transformer implementation in GVP results in better results or faster learning?
+
+> Does pre-trained embeddings improve the model
+
+> Does using  
 
 ## Individual Student's Contribution
 Description of what each student's contribution to the project was.
@@ -257,14 +267,16 @@ Description of what each student's contribution to the project was.
 - Atom3d
 - Equivariant Graph Neural Networks for 3D Macromolecular Structure
 - LEARNING  FROMPROTEINSTRUCTURE WITHGEOMETRICVECTORPERCEPTRONS
+- Alle andere papers 
 - ...
 
-
 ## Future work
-
 - 
 - Use better version of ProtBert, if not limited by GPU memory
+- Zero epochs trained baseline model
 - 
+
+
 ## Appendix
 Batch size and Hyper params used --> see notion
 
