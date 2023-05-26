@@ -145,7 +145,7 @@ Description of Novel contributions of our work.
 >
 > The core operation of TransformerConv is the multi-head dot product attention mechanism. It calculates attention coefficients $\alpha_{ij}$ between pairs of nodes to determine the importance of information flow from one node to another. The attention coefficients are computed as follows:
 > 
-> $$\alpha_{ij} = softmax((W1 * x_i)^T * (W2 * x_j) \over \\sqrt(d)) $$
+> $$\alpha_{ij} = {softmax((W1 * x_i)^T * (W2 * x_j) \over \\sqrt(d))} $$
 >
 > Here, $W1$ and $W2$ are learnable weight matrices, $x_i$ and $x_j$ are the node features of nodes $i$ and $j$, and $d$ is the dimensionality of the node features.
 The attention coefficients control how much information from neighbouring nodes contributes to the updated representation of a node. Higher attention coefficients imply stronger information flow between nodes.
