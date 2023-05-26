@@ -224,7 +224,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 </li>
 </ol>
 
-
+![](./images/GVP_longer_training.png)
 
 ![](./images/transformer_yes_no_long.png)
 
