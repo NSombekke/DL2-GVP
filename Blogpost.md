@@ -232,10 +232,12 @@ Below are the best performing model checkpoint performance on the evaluation dat
 >  
 > **TODO** **MISSCHIEN DENKFOUT van mij maar, IDK**
 
+| **Task** | **Metric** | Epochs | **GVP-GNN** | **GVPTransformer** | **GVPTransformer + BERT embedding** | **GVPTransformer + ProteinBERT prediction** |
+|----------|------------|--------|-------------|--------------------|-------------------------------------|---------------------------------------------|
+| **RES**  | Accuracy   | 5      | 0.160       | 0.156              | 0.082                               | X                                           |
+|          |            | 12     | 0.247       |                    | 0.209                               | X                                           |
 
-| **Task** | **Metric** | **GVPTransformer** | **GVPTransformer + BERT embedding** |**GVPTransformer + ProteinBERT prediction** |
-|----------|------------|--------------------|----------------------------------|----------------------------------|
-| **RES**  |  Accuracy  |                    |                                  |                                   |
+> GVPTransformer + ProteinBERT prediction
 
 
 
