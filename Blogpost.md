@@ -109,6 +109,10 @@ RMSE is a commonly used evaluation metric in regression tasks that measures the 
 **Area Under the Receiver Operating Characteristic Curve (AUROC) -** 
 AUROC is a commonly used evaluation metric in machine learning for binary classification problems. It quantifies the performance of a classifier by measuring the trade-off between its true positive rate (sensitivity) and false positive rate (1 - specificity) across different classification thresholds. The AUROC value ranges between 0 and 1, with a higher value indicating better classifier performance, where an AUROC of 0.5 suggests a random classifier and an AUROC of 1 represents a perfect classifier.
 
+**Area Under the Precision-Recall Curve (AUPRC)**
+AUPRC, is another evaluation metric commonly used in binary classification problems. It assesses the trade-off between precision and recall across various classification thresholds. The precision-recall curve plots precision (the fraction of correctly predicted positive instances) against recall (the fraction of actual positive instances correctly predicted). A higher AUPRC indicates better classifier performance, with an AUPRC of 0 representing a random classifier and an AUPRC of 1 representing a perfect classifier. Compared to AUROC, AUPRC is especially useful when dealing with imbalanced datasets where the positive class is rare.
+
+
 **Accuracy -**
 Accuracy is a common evaluation metric used in classification tasks to measure the overall correctness of predictions made by a classifier. It calculates the proportion of correct predictions out of the total number of predictions. It is a simple and intuitive metric, but it may not be suitable for imbalanced datasets where the class distribution is skewed. Nonetheless, a higher accuracy score indicates better performance, with 100% accuracy representing a perfect classifier. It is calculated as follows: $$\text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}}$$
 
@@ -188,9 +192,9 @@ Below are the best performing model checkpoint performance on the evaluation dat
 | **SMP**  | mae        | **18.64 ± 0.20** | 18.77 ± 	0.19       |
 | **LBA**  | RMSE       | 1.64 ± 0.07      | **1.58 ± 0.03**    |
 | **LEP**  | AUROC      | 0.53 ± 0.06      | **0.61 ± 0.04**    |
-|          | AUPRC      |                  |                    |
+|          | AUPRC      |  0.41 ±  0.03 |   **0.47 ± 0.03**|
 | **MSP**  | AUROC      | **0.69 ±	0.03**   | 0.67	± 0.01         |
-|          | AUPRC      | 0.25±0,03        | 0,24±0,03          |
+|          | AUPRC      | **0.25±0,03**    | 0,24±0,03          |
 
 -- **INCLUDE BASELINE GVP or GVPTransformer with 0 epochs of learning!!!**
 
