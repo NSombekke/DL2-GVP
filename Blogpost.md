@@ -201,9 +201,9 @@ The atom3d tasks share a common underlying representation and problem domain, pr
 We incorperate two levels of intergrating a BERT protein language model into the model, in order to boost the performance on the Residue Identity (RES) dataset.
 Amino acid substitution prediction is crucial for protein engineering. We use a new dataset extracted from PDB structures to classify amino acid identities based on surrounding structural environments, divided by protein topology classes. 
 The first level consists of using the BERT amino acid embedding `<nn.Embedding>`   
-to boost the training process instead of random initilizing. By using pre-trained embeddings https://github.com/agemagician/ProtTrans the model already has relation information about how similair certran amino acids in their structure and behavior.
+to boost the training process instead of random initilizing. By using pre-trained embeddings https://github.com/agemagician/ProtTrans the model already has relation information about how similair certran amino acids in their structure and behavior. We _unfroze_ the weight such that they are still trainable.
 
-The second level uses the masked language model function to predict the _[MASK]_ representing the amino acid we search for the RES data task. We combine the prediction of the GVPTransformer with the BERT prediction to ultimately end up with one amino acid. Using this paper https://www.biorxiv.org/content/10.1101/2023.03.20.533508v1, .... TODO we combined both [batchsize,20] (for the 20 different amino acids)  
+The second level uses the masked language model function to predict the _[MASK]_ representing the amino acid we search for the RES data task. We combine the prediction of the GVPTransformer with the BERT prediction to ultimately end up with one amino acid. **TODO** We combined both [batchsize,20] (for the 20 different amino acids) for the GVP and BERT prediction using a MLP, inspired by https://www.biorxiv.org/content/10.1101/2023.03.20.533508v1.  
 
 - Tested with Bert embeddings initialization on sequence prediction task
 - Tested with ensemble model with Bert amino acid mask prediction on sequence prediction task
