@@ -1,4 +1,4 @@
-# Wouter stinkt maar niet zo erg als Luka 
+# Wouter stinkt maar niet zo erg als Luka, maar Arie het meest
 
 ![](./images/1200px-DHRS7B_homology_model.png)
 
