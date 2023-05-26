@@ -134,6 +134,8 @@ Equivariant Graph Neural Networks for 3D Macromolecular Structure paper, toont a
 Description of Novel contributions of our work.
 
 ### The TransformerConv explained
+- Tested the integration of [`torch geometric`](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.TransformerConv.html?highlight=TransformerConv#torch_geometric.nn.conv.TransformerConv) TransformeConv in GVP model on MQA Cong,  - GVPTransformer from https://github.com/congliuUvA/gvp
+
 
 The TransformerConv is component that can be used in graph neural networks (GNNs) and uses the ground breaking Transformer architecture, originally proposed for natural language processing tasks, and adapts it for graph data.
 
@@ -162,9 +164,6 @@ By dropping out attention coefficients during training, it allows each node of t
 
 Overall, the TransformerConv operator in the paper extends the Transformer architecture to handle graph-structured data. It leverages multi-head attention, optional edge features, and additional mechanisms like concatenation, averaging, and weighted aggregation to capture meaningful relationships and propagate information effectively through the graph. By adapting the powerful Transformer model to graph data, TransformerConv enables improved performance in various graph-based tasks, including node classification, link prediction, and graph generation.
 
-
-### TransformerConv
-- Tested the integration of [`torch geometric`](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.TransformerConv.html?highlight=TransformerConv#torch_geometric.nn.conv.TransformerConv) TransformeConv in GVP model on MQA Cong,  - GVPTransformer from https://github.com/congliuUvA/gvp
 
 ### BERT language model 
 The atom3d tasks share a common underlying representation and problem domain, presenting an opportunity for _transfer learning_ to improve performance on data-poor tasks. Therefore, the authors use transfer learning technique to leverage the model weight trained on data-rich (SMP,RES) settings to improve model training on data-poor (MSP, LEP) dataset. 
