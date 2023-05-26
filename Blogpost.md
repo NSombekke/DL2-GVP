@@ -247,10 +247,9 @@ Below are the best performing model checkpoint performance on the evaluation dat
 - **Important:** 
 The table 2 in the paper _Equivariant Graph Neural Networks for 3D Macromolecular Structure_ model performances of 0.451,0.082,0.072, 0.527
 on the RES dataset with the models CNN, GNN, ENN, GVP-GNN respectively are shown. We were bounded by limitations on training time and batch size, potentially 
-causing such big differences in the GVP-GNN baseline (0.247 / 0.527).
+causing such big differences in the GVP-GNN baseline (0.247 / 0.527). We only conlusion we thus can make are on relative differences up till a certain number of training steps.
 
-- Gekeken naar de paper equivar....   zien we dat sommige metrics zoals RES bij ons veel slechter zijn, wat suggereert dat wij niet lang of verkeerd krijgen 
-of dat zij hun modellen van 2/3 dagen per model hebben getrained. Maar we kunnen zeggen over onze resultaten gegeven de hoeveelheid training gehad is ... beter dan ...
+This however does not hold true for the other ATOM3d tasks, were we see strong resemblance between the original GVP-GNN and the reproduced baseline in our experiments.
 
 ## Conclusion
 
