@@ -263,6 +263,13 @@ This however does not hold true for the other ATOM3d tasks, were we see strong r
 
 > Does using  
 
+During our project, we have tried to demonstrate the effectiveness of the GVP's proposed by Jing et al. (2021) in tackling different tasks on 3D molecular structures, including proteins, small molecules, and nucleic acids. Besides this, we introduced a new architecture, "the TransformerConv", to the original GVP to see if we could improve upon the obtained results. From the results it seems that, for most of the Atom3D tasks, there is no significant difference between the performance of the GVPCNN and the GVPCNN + Transformer. The GVPCNN without transformer seems to obtain slightly better evaluation scores for the SMP and MSP tasks. However, these deviations seem to fall within the standard deviation. The GVPCNN with transformer seems to obtain (not significantly) higher evaluation scores for the LBA task. However, for the LEP task, there seems to be a significant improvement from the GVPCNN + Transformer over the regular GVPCNN.
+
+### Discussion
+> Describe possible reasons for results
+
+The ATOM3D datasets can be roughly grouped into four categories that represent a wide range of problems, spanning single molecular structures and interactions between biomolecules as well as molecular functional and design/engineering tasks. The funcional tasks are specifically the LEP and SMP tasks. From our results we saw that the only task in which there was a significant difference between the regular GVP and the GVP using the TransformerConv layers was the LEP task. For the SMP task, the regular GVP seemed to achieve slightly (but not significantly) beter evaluation scores. From these findings one might conclude that the GVPCNN + Transformer works best on molecular functional tasks.
+
 ## Individual Student's Contribution
 Description of what each student's contribution to the project was.
 
