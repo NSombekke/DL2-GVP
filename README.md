@@ -53,7 +53,8 @@ In order to test a correct install run  `test_equivariance.py`
 In order to download the ATOM3d datasets with splits we use the `download_atomdataset.job`. Running this file downloads the necesarry datasets by running `download_atom3d.py` and saves them into the right directories.
 
 ## Run-experiments
-### In order to train the model on the ATOM3D datasets, we used the `run_atom3d.job` file in which we called `run_atom3d.py` for the different datasets and on different seeds. The usage of `run_atom3d.py` is as follows:
+### Training
+In order to train the model on the ATOM3D datasets, we used the `run_atom3d.job` file in which we called `run_atom3d.py` for the different datasets and on different seeds. The usage of `run_atom3d.py` is as follows:
 ```
  $ python run_atom3d.py -h
 
@@ -67,8 +68,34 @@ positional arguments:
   TASK                  {RES, MSP, SMP, LBA, LEP}
 
 ```
+Here is an example of what the `run_atom3d.job` file would look like to train the models on the LEP dataset and task with different seeds:
+```
+#!/bin/bash
 
+#SBATCH --partition=gpu_titanrtx_shared_course
+#SBATCH --gres=gpu:1
+#SBATCH --job-name=RunAtom3D
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=3
+#SBATCH --time=36:00:00
+#SBATCH --mem=32000M
+#SBATCH --output=../job_logs/slurm_output_%A.out
 
+module purge
+module load 2022
+module load Anaconda3/2022.05
+
+source activate gvp
+
+srun python run_atom3d.py LEP --batch 2 --seed 0 
+srun python run_atom3d.py LEP --batch 2 --seed 34
+srun python run_atom3d.py LEP --batch 2 --seed 42
+
+srun python run_atom3d.py LEP --batch 2 --seed 0 --transformer
+srun python run_atom3d.py LEP --batch 2 --seed 34 --transformer
+srun python run_atom3d.py LEP --batch 2 --seed 42 --transformer
+```
+This saves each model at every epoch to their specific directory (i.e. /models/LEP/Transformer/32/LEP_0000000000.0000000_00_TF.pt). In the output file from this job you can find at what epoch the model with the lowest validation loss was saved, which can be used for the evaluation.
 ## Links
 
 
