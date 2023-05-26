@@ -183,9 +183,10 @@ GVP(nn.Module):
 TransformerConv(MessagePassing):
 
   # Instead of dense layers
-  gvp_ = gvp.GVP(in_dims, out_dims,
+  gvp_key = gvp.GVP(in_dims, out_dims,
             activations=(F.relu, None), vector_gate=True)
-            
+  gvp_query, gvp_value, gvp_edge = ...
+
   def forward():
         ...
   def message():    
