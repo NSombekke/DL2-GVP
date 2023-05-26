@@ -50,10 +50,23 @@ pip install atom3d
 In order to test a correct install run  `test_equivariance.py`
 
 ### Download-dataset
-In order to download the ATOM3d dataset with splits we use the `download_atomdataset.job`
+In order to download the ATOM3d datasets with splits we use the `download_atomdataset.job`. Running this file downloads the necesarry datasets by running `download_atom3d.py` and saves them into the right directories.
 
 ## Run-experiments
+### In order to train the model on the ATOM3D datasets, we used the `run_atom3d.job` file in which we called `run_atom3d.py` for the different datasets and on different seeds. The usage of `run_atom3d.py` is as follows:
+```
+ $ python run_atom3d.py -h
 
+usage: run_atom3d.py [-h] [--num-workers N] [--smp-idx IDX]
+                     [--lba-split SPLIT] [--batch SIZE] [--train-time MINUTES]
+                     [--val-time MINUTES] [--epochs N] [--test PATH]
+                     [--lr RATE] [--load PATH]
+                     TASK
+
+positional arguments:
+  TASK                  {RES, MSP, SMP, LBA, LEP}
+
+```
 
 
 ## Links
