@@ -1,4 +1,4 @@
-# Mini-project
+# Wouter stinkt
 
 ![](./images/1200px-DHRS7B_homology_model.png)
 
