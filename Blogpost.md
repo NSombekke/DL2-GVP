@@ -1,4 +1,4 @@
-# Wouter stinkt
+# Wouter stinkt maar niet zo erg als Luka 
 
 ![](./images/1200px-DHRS7B_homology_model.png)
 
