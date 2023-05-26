@@ -171,7 +171,10 @@ Overall, the TransformerConv operator in the paper extends the Transformer archi
 #### How it is intergrated in the original GVP-GNN
 TODO ERRIE!!!
 
+- To integrate Within the whole sequential GVP model consisting of different kind of layer under which the GVPConv layer `MessagePassing`
 
+> __Note__: This is different than using the (Structured) Transformer architecture as a whole which performance worse than the GVP, as was shown in the paper "Learning from ...".
+> W  
 
 ### BERT language model 
 The atom3d tasks share a common underlying representation and problem domain, presenting an opportunity for _transfer learning_ to improve performance on data-poor tasks. Therefore, the authors use transfer learning technique to leverage the model weight trained on data-rich (SMP,RES) settings to improve model training on data-poor (MSP, LEP) dataset. 
