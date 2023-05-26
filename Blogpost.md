@@ -236,16 +236,14 @@ Below are the best performing model checkpoint performance on the evaluation dat
 
 
 > Cab we conclude that TransformerConv gives the learning process a head start? We still see for both that the loss is decreasing so to be sure 
-> we need to train for longer.
-
-
+> we need to train for longer. Below we combined group multiple run based on wether the Transformer was used or not, for a longer training periode. 
 
 
 <!-- ![](./images/GVP_longer_training.png) -->
 
 ![](./images/transformer_yes_no_long.png)
 <ul>
-<li> <details><summary>Ungrouped</summary><blockquote>
+<li> <details><summary>Same plot ungrouped</summary><blockquote>
   <details><summary> https://api.wandb.ai/links/dl2-gvp-team34/2qtp2q9z 
 </summary><blockquote>
     :smile:
