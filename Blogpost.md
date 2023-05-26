@@ -213,19 +213,20 @@ Below are the best performing model checkpoint performance on the evaluation dat
 > we need to train for longer.
 
 
+
+
+<!-- ![](./images/GVP_longer_training.png) -->
+
+![](./images/transformer_yes_no_long.png)
 <ol>
 <li> <details><summary>Ungrouped</summary><blockquote>
-  <details><summary>![](./images/GVP_longer_training.png)
+  <details><summary> https://api.wandb.ai/links/dl2-gvp-team34/2qtp2q9z 
 </summary><blockquote>
     :smile:
   </blockquote></details>
 </blockquote></details>
 </li>
 </ol>
-
-![](./images/GVP_longer_training.png)
-
-![](./images/transformer_yes_no_long.png)
 
 > This plot shows that after a certrain number of steps the loss stagnates and thus the model is either stuck in the loss landscape or has reached its maximum learning capability given its expressiveness. The figure shows that the transformer models (with and without pre-trained embeddings) has the capabilities to reach a lower loss. However, this might be misleading since the number of epochs used for both models is the same, but since the transformer is a bigger model it requires more computation. So in the end both runs are comparable, making the original GVP-GNN favorable.
 >  
