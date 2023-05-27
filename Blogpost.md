@@ -263,6 +263,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 
 
 ### GVPTransformer + ProteinBERT prediction
+Model integraed with the whole Bert model used to predict the masked amino acid label fails to learn. Considering that we use the already tested MLP integration strategy, described above, to combine both the plain GVP and the Bert prediction we exclude any fallacy here. However this could be attributed to the incompatibility of the used representations. The representations used by the BERT LLM and the GVP-GNN models may not be compatible or might have different levels of abstraction. If the representations from the BERT LLM model and the GVP-GNN model are not effectively combined, it could lead to limited or no improvement in performance. If we that only thing that we exlcude from the traing process is the  the BERT model from the training 
 
 
 ### Baseline comparison original paper
