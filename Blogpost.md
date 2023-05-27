@@ -255,8 +255,8 @@ Below are the best performing model checkpoint performance on the evaluation dat
 
 | **Task** | **Metric** | Epochs | **GVP-GNN** | **GVP-GNN Transformer** | **GVP-GNN Transformer + BERT embedding** | **GVP-GNN Transformer + ProteinBERT prediction** |
 |----------|------------|--------|-------------|--------------------|-------------------------------------|---------------------------------------------|
-| **RES**  | Accuracy   | 5      | 0.160       | 0.156              | 0.082                               | X                                           |
-|          |            | 12     | 0.247       |                    | 0.209                               | X                                           |
+| **RES**  | Accuracy   | 5      | 0.160       | 0.156              | 0.082                               | 0.016                                           |
+|          |            | 12     | 0.247       |                    | 0.209                               | 0.029                                           |
 
 
 ### GVPTransformer + ProteinBERT prediction
