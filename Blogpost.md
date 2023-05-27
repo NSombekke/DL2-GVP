@@ -261,7 +261,8 @@ Below are the best performing model checkpoint performance on the evaluation dat
 | **RES**  | Accuracy   | 5      | 0.160       | 0.156              | 0.082                               | X                                           |
 |          |            | 12     | 0.247       |                    | 0.209                               | X                                           |
 
-> GVPTransformer + ProteinBERT prediction
+
+### GVPTransformer + ProteinBERT prediction
 
 
 ### Baseline comparison original paper
