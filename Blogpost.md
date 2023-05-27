@@ -251,12 +251,12 @@ Below are the best performing model checkpoint performance on the evaluation dat
 
 > This plot shows that after a certrain number of steps the loss stagnates and thus the model is either stuck in the loss landscape or has reached its maximum learning capability given its expressiveness. The figure shows that the transformer models (with and without pre-trained embeddings) has the capabilities to reach a lower loss. However, this might be misleading since the number of epochs used for both models is the same, but since the transformer is a bigger model it requires more computation. So in the end both runs are comparable, making the original GVP-GNN favorable.
 >  
-> **TODO** **MISSCHIEN DENKFOUT van mij maar, IDK**
 
+Below a table of the different kind of models performing on the half of the original randomized test_dataset of RES.
 | **Task** | **Metric** | Epochs | **GVP-GNN** | **GVP-GNN Transformer** | **GVP-GNN Transformer + BERT embedding** | **GVP-GNN Transformer + ProteinBERT prediction** |
 |----------|------------|--------|-------------|--------------------|-------------------------------------|---------------------------------------------|
 | **RES**  | Accuracy   | 5      | 0.160       | 0.156              | 0.082                               | 0.016                                           |
-|          |            | 12     | 0.247       |                    | 0.209                               | 0.029                                           |
+|          |            | 12     | 0.247       | 0.201                   | 0.209                               | 0.029                                           |
 
 
 ### GVPTransformer + ProteinBERT prediction
