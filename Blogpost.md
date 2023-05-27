@@ -135,7 +135,8 @@ Equivariant Graph Neural Networks for 3D Macromolecular Structure paper, toont a
 Description of Novel contributions of our work.
 
 ### The TransformerConv explained
-> Tested the integration of [`torch geometric`](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.TransformerConv.html?highlight=TransformerConv#torch_geometric.nn.conv.TransformerConv) TransformeConv in GVP model on MQA Cong,  - GVPTransformer from https://github.com/congliuUvA/gvp
+> Tested the integration of [`torch geometric`](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.TransformerConv.html?highlight=TransformerConv#torch_geometric.nn.conv.TransformerConv) 
+> Base TransformeConv from supervisor TA https://github.com/congliuUvA/gvp originally testing on sequence prediction
 
 
 > The TransformerConv is component that can be used in graph neural networks (GNNs) and uses the ground breaking Transformer architecture, originally proposed for natural language processing tasks, and adapts it for graph data.
