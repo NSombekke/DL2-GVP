@@ -34,7 +34,7 @@ Let's go through the steps of how a GVP works:
 > Non-linearities: After concatenation, non-linear activation functions are applied to both the transformed scalar features s_h and the transformed vector norm features s_h+n. The specific non-linearities used can vary, but commonly used activation functions include sigmoid, tanh, or ReLU.
 >
 > Vector nonlinearity: The transformed vector features V_h are further processed using a separate linear transformation, W_µ. This transformation is followed by an element-wise multiplication with the vector norm features s_h+n. This vector nonlinearity operation scales the vectors based on their corresponding norms, allowing control over the output dimensionality independently of the number of norms extracted.
-
+>
 > Output: Finally, the GVP outputs the computed features as (s_0, V_0), where s_0 represents the final scalar features and V_0 represents the final vector features.
 
 The GVP architecture is designed to possess desirable properties such as equivariance and invariance. Equivariance means that the vector outputs of the GVP are transformed in the same way as the input vectors under arbitrary compositions of rotations and reflections in 3D space. Invariance means that the scalar outputs of the GVP remain unchanged under the same transformations.
@@ -65,37 +65,37 @@ Additionally, the authors' idea of replacing the linear layers within the transf
 In order to assess the quality of our reimplementation of the GVP architecture, as well as the GVP architecture with the added transformer, we used the ATOM3D set of datasets. ATOM3D is a collection of benchmark datasets for machine learning in structural biology. It concerns the three-dimensional structure of biomolecules, including proteins, small molecules, and nucleic acids and is designed as a benchmark for machine learning methods which operate on 3D molecular structure. The different datasets in ATOM3D also include specific tasks for our model to optimise and evaluate. For our research, we used the following sets of dataset and task from ATOM3D.
 
 <ol>
-<li> <details><summary>**RES -**</summary><blockquote>
+<li> <details><summary>RES</summary><blockquote>
   <details><summary>The RES dataset consists of atomic environments extracted from nonredundant structures in the PDB. This dataset is accompanied by a classification task where the goal is to predict the identity of the amino acid in the center of the environment based on all other atoms in that environment.</summary><blockquote>
     :smile:
   </blockquote></details>
 </blockquote></details>
 </li>
-<li> <details><summary>Hello</summary><blockquote>
-  <details><summary>World</summary><blockquote>
+<li> <details><summary>LBA</summary><blockquote>
+  <details><summary>The LBA dataset is uses a curated database containing protein-ligand complexes from the PDB and their corresponding binding strengths. The task at hand is We predict pK = -log(K), where K is the binding affinity in Molar units.</summary><blockquote>
     :smile:
   </blockquote></details>
 </blockquote></details>
 </li>
-<li> <details><summary>Hello</summary><blockquote>
-  <details><summary>World</summary><blockquote>
+<li> <details><summary>SMP</summary><blockquote>
+  <details><summary>The SMP dataset uses the QM9 dataset (Ruddigkeit et al., 2012; Ramakrishnan et al., 2014)(**still have to properly cite everything**), which contains structures and energetic, electronic, and thermodynamic properties for 134,000 stable small organic molecules, obtained from quantum-chemical calculations. The task here is to predict all molecular properties from the ground-state structure.</summary><blockquote>
+    :smile:
+  </blockquote></details>
+</blockquote></details>
+</li>
+<li> <details><summary>LEP</summary><blockquote>
+  <details><summary>This is a novel dataset created by curating proteins from several families with both ”active” and ”inactive” state structures, and model in 527 small molecules with known activating or inactivating function using the program Glide. The corresponding task here can be formulated as a binary classification tsk where the goal is to predict whether or not a molecule bound to the structures will be an activator of the protein's function or not.</summary><blockquote>
+    :smile:
+  </blockquote></details>
+</blockquote></details>
+</li>
+<li> <details><summary>MSP</summary><blockquote>
+  <details><summary>This is a novel dataset which was derived by collecting single-point mutations from the SKEMPI database (Jankauskaitė et al., 2019)(**properly cite**) and model each mutation into the structure to produce mutated structures. The task here can be seen as a binary classification task where we predict whether the stability of the complex increases as a result of the mutation.</summary><blockquote>
     :smile:
   </blockquote></details>
 </blockquote></details>
 </li>
 </ol>
-
-**LBA -**
-The LBA dataset is uses a curated database containing protein-ligand complexes from the PDB and their corresponding binding strengths. The task at hand is We predict pK = -log(K), where K is the binding affinity in Molar units.
-
-**SMP -**
-The SMP dataset uses the QM9 dataset (Ruddigkeit et al., 2012; Ramakrishnan et al., 2014)(**still have to properly cite everything**), which contains structures and energetic, electronic, and thermodynamic properties for 134,000 stable small organic molecules, obtained from quantum-chemical calculations. The task here is to predict all molecular properties from the ground-state structure.
-
-**LEP -**
-This is a novel dataset created by curating proteins from several families with both ”active” and ”inactive” state structures, and model in 527 small molecules with known activating or inactivating function using the program Glide. The corresponding task here can be formulated as a binary classification tsk where the goal is to predict whether or not a molecule bound to the structures will be an activator of the protein's function or not.
-
-**MSP -**
-This is a novel dataset which was derived by collecting single-point mutations from the SKEMPI database (Jankauskaitė et al., 2019)(**properly cite**) and model each mutation into the structure to produce mutated structures. The task here can be seen as a binary classification task where we predict whether the stability of the complex increases as a result of the mutation.
 
 #### Evaluation metric
 Since the data and tasks that are described above differ, they use different evaluation metrics to assess the quality of the model. We will describe the used metrics here briefly.
@@ -126,12 +126,9 @@ The vector gating modification, enables the GVP to inherit the Universal Approxi
 
 Equivariant Graph Neural Networks for 3D Macromolecular Structure paper, toont aan dat ie beter is dus hebben vector gating aangezet bij elke experiment
 
+<!-- **TODO: cite**
 
-
-
-**TODO: cite**
-
-- Batch size different for GVPGNN vs GVP TransformerG
+- Batch size different for GVPGNN vs GVP TransformerG -->
  
 
 ## Novel Contribution
