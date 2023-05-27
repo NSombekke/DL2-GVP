@@ -298,7 +298,7 @@ Description of what each student's contribution to the project was.
 - ...
 
 ## Future work
-- 
+- Alle emoji smile uit dataset foldable
 - Use better version of ProtBert, if not limited by GPU memory
 - Zero epochs trained baseline model
 - 
