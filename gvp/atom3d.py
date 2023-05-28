@@ -13,8 +13,11 @@ from .data import _normalize, _rbf
 
 import atom3d.protein.sequence as seq
 
+# ignorre warnings
+import warnings
+warnings.filterwarnings("ignore")
+
 _NUM_ATOM_TYPES = 9
-_SEQ_EMBED_SIZE = 1024
 _element_mapping = lambda x: {
     'H' : 0,
     'C' : 1,
@@ -47,6 +50,78 @@ _amino_acids = lambda x: {
     'TYR': 18,
     'VAL': 19
 }.get(x, 20)
+
+_reverse__amino_acids = lambda x: {
+ 0: 'ALA',
+ 1: 'ARG',
+ 2: 'ASN',
+ 3: 'ASP',
+ 4: 'CYS',
+ 5: 'GLU',
+ 6: 'GLN',
+ 7: 'GLY',
+ 8: 'HIS',
+ 9: 'ILE',
+ 10: 'LEU',
+ 11: 'LYS',
+ 12: 'MET',
+ 13: 'PHE',
+ 14: 'PRO',
+ 15: 'SER',
+ 16: 'THR',
+ 17: 'TRP',
+ 18: 'TYR',
+ 19: 'VAL'}.get(x, 'UNKOWN')
+
+map_amino_3to1 = lambda x: {
+    'ALA': 'A',
+    'ARG': 'R',
+    'ASN': 'N',
+    'ASP': 'D',
+    'CYS': 'C',
+    'GLN': 'Q',
+    'GLU': 'E',
+    'GLY': 'G',
+    'HIS': 'H',
+    'ILE': 'I',
+    'LEU': 'L',
+    'LYS': 'K',
+    'MET': 'M',
+    'PHE': 'F',
+    'PRO': 'P',
+    'SER': 'S',
+    'THR': 'T',
+    'TRP': 'W',
+    'TYR': 'Y',
+    'VAL': 'V',
+}.get(x, 'unkown')
+
+map_amino_1to3 = lambda x: {
+    'A': 'ALA',
+    'R': 'ARG',
+    'N': 'ASN',
+    'D': 'ASP',
+    'C': 'CYS',
+    'Q': 'GLN',
+    'E': 'GLU',
+    'G': 'GLY',
+    'H': 'HIS',
+    'I': 'ILE',
+    'L': 'LEU',
+    'K': 'LYS',
+    'M': 'MET',
+    'F': 'PHE',
+    'P': 'PRO',
+    'S': 'SER',
+    'T': 'THR',
+    'W': 'TRP',
+    'Y': 'TYR',
+    'V': 'VAL',
+}.get(x, 'unknown')
+
+
+
+
 _DEFAULT_V_DIM = (100, 16)
 _DEFAULT_E_DIM = (32, 1)
 
@@ -125,20 +200,14 @@ class BaseModel(nn.Module):
     
     This class should not be used directly. Instead, please use the
     task-specific models which extend BaseModel. (Some of these classes
-    may be aliases of BaseModel
-    .)
+    may be aliases of BaseModel.)
     
     :param num_rbf: number of radial bases to use in the edge embedding
     '''
-    def __init__(self, num_rbf=16, use_transformer=False, use_protein_bert=False):
+    def __init__(self, num_rbf=16, use_transformer=False, use_bert_embedding=False, use_bert_predict=False):
         
         super().__init__()
         activations = (F.relu, None)
-        if use_protein_bert:
-            self.use_protein_bert = True
-            _NUM_ATOM_TYPES = _SEQ_EMBED_SIZE
-        else:
-            _NUM_ATOM_TYPES = 9
         self.embed = nn.Embedding(_NUM_ATOM_TYPES, _NUM_ATOM_TYPES)
         
         self.W_e = nn.Sequential(
@@ -152,11 +221,11 @@ class BaseModel(nn.Module):
             GVP((_NUM_ATOM_TYPES, 0), _DEFAULT_V_DIM,
                 activations=(None, None), vector_gate=True)
         )
-        
+                
         self.layers = nn.ModuleList(
                 GVPConvLayer(_DEFAULT_V_DIM, _DEFAULT_E_DIM, 
                              activations=activations, vector_gate=True, use_transformer=use_transformer) 
-            for _ in range(5))
+            for _ in range(5) )
         
         ns, _ = _DEFAULT_V_DIM
         self.W_out = nn.Sequential(
@@ -181,8 +250,10 @@ class BaseModel(nn.Module):
                              (for each graph), else, returns embeddings seperately
         :param dense: if `True`, applies final dense layer to reduce embedding
                       to a single scalar; else, returns the embedding
-        '''        
+        '''
+        # print("batch.chain_sequence", len(batch.chain_sequence[0]), len(batch.atoms))
 
+        # batch.chain_sequence)
         h_V = self.embed(batch.atoms)
         h_E = (batch.edge_s, batch.edge_v)
         h_V = self.W_v(h_V)
@@ -215,10 +286,8 @@ class SMPTransform(BaseTransform):
             data.label = torch.as_tensor(elem['labels'], 
                             device=self.device, dtype=torch.float32)
         return data
-
-class SMPModel(BaseModel):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        
+SMPModel = BaseModel
     
 ########################################################################
 
@@ -292,13 +361,14 @@ class PPIDataset(IterableDataset):
         with torch.no_grad():
             for idx in indices:
                 data = self.dataset[idx]
+
                 neighbors = data['atoms_neighbors']
                 pairs = data['atoms_pairs']
                 
                 for i, (ensemble_name, target_df) in enumerate(pairs.groupby(['ensemble'])):
-                    sub_names, (bound1, bound2, _, _) = get_subunits(target_df)
+                    sub_names, (bound1, bound2, _, _) = nb.get_subunits(target_df)
                     positives = neighbors[neighbors.ensemble0 == ensemble_name]
-                    negatives = get_negatives(positives, bound1, bound2)
+                    negatives = nb.get_negatives(positives, bound1, bound2)
                     negatives['label'] = 0
                     labels = self._create_labels(positives, negatives, num_pos=10, neg_pos_ratio=1)
                     
@@ -314,10 +384,7 @@ class PPIDataset(IterableDataset):
                         yield graph1, graph2
 
     def _create_labels(self, positives, negatives, num_pos, neg_pos_ratio):
-        if positives.shape[0] == 0:
-            frac = 1
-        else:
-            frac = min(1, num_pos / positives.shape[0])
+        frac = min(1, num_pos / positives.shape[0])
         positives = positives.sample(frac=frac)
         n = positives.shape[0] * neg_pos_ratio
         n = min(negatives.shape[0], n)
@@ -387,9 +454,7 @@ class LBATransform(BaseTransform):
             data.lig_flag = lig_flag
         return data
 
-class LBAModel(BaseModel):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+LBAModel = BaseModel
     
 ########################################################################
     
@@ -548,9 +613,7 @@ class PSRTransform(BaseTransform):
         data.id = eval(elem['id'])[0]
         return data
 
-class PSRModel(BaseModel):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+PSRModel = BaseModel
 
 ########################################################################
         
@@ -572,12 +635,28 @@ class RSRTransform(BaseTransform):
         data.id = eval(elem['id'])[0]
         return data
 
-class RSRModel(BaseModel):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+RSRModel = BaseModel
 
 ########################################################################
 
+class RESTransform(BaseTransform):
+    '''
+    Transforms dict-style entries from the ATOM3D RES dataset to add
+    a 'chain_sequences' attribute to the graph, which is a list of
+    the amino acid sequences of each chain in the protein.
+    '''
+    # from Bio.PDB.Polypeptide import protein_letters_3to1
+
+    def __call__(self, df):
+        data = super().__call__(df)
+        with torch.no_grad():
+            chain_sequences = seq.get_chain_sequences(df)
+            chain_sequence = chain_sequences[0][-1]
+            sequence_length = len(chain_sequence)
+            chain_sequence = " ".join(list(re.sub(r"[UZOB]", "X", chain_sequence)))
+            data.update({'chain_sequence': chain_sequence, 'sequence_length': sequence_length})
+        return data
+    
 class RESDataset(IterableDataset):
     '''
     A `torch.utils.data.IterableDataset` wrapper around a
@@ -625,7 +704,6 @@ class RESDataset(IterableDataset):
                     my_atoms = atoms.iloc[data['subunit_indices'][sub.Index]].reset_index(drop=True)
                     ca_idx = np.where((my_atoms.residue == num) & (my_atoms.name == 'CA'))[0]
                     if len(ca_idx) != 1: continue
-
                     with torch.no_grad():
                         graph = self.transform(my_atoms)
                         graph.label = aa
@@ -644,31 +722,119 @@ class RESModel(BaseModel):
     carbon embeddings instead of the graph mean embedding.
     '''
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__(**kwargs) 
+        _SEQ_EMBED_SIZE = 1024       
+        AMINO_TYPE = 20
+        AMINO_TYPE_AND_MASK = 21
+     
+        
+        self.bert = False
+        if kwargs['use_bert_predict']:
+            
+            # Define MLP architecture to combine GVP and BERT predictions
+            self.mlp = nn.Sequential(
+                    nn.Linear(40, 64),  # Input size: 40, output size: 64
+                    nn.ReLU(),          # Apply ReLU activation function
+                    nn.Linear(64, 20)   # Input size: 64, output size: 20
+                )
+            
+            self.bert = True
+
+            model_name = "prot_bert"
+            # model_name = "prot_t5_xl_half_uniref50-enc"
+
+            if model_name == "prot_bert":
+                # from transformers import BertModel, BertTokenizer, pipeline
+                from transformers import BertForMaskedLM, BertTokenizer, pipeline
+                tokenizer = BertTokenizer.from_pretrained("Rostlab/prot_bert", do_lower_case=False )
+                model = BertForMaskedLM.from_pretrained("Rostlab/prot_bert")
+            
+            # TO FIX -----------------------------------
+            # if model_name == "prot_t5_xl_half_uniref50-enc":
+            #     from transformers import T5EncoderModel, T5Tokenizer, pipeline
+            #     # tokenizer = T5Tokenizer.from_pretrained("Rostlab/prot_t5_xl_uniref50", do_lower_case=False)
+            #     # model = T5EncoderModel.from_pretrained("Rostlab/prot_t5_xl_uniref50")
+            #     tokenizer = T5Tokenizer.from_pretrained("Rostlab/prot_t5_xl_half_uniref50-enc", do_lower_case=False)
+            #     model = T5EncoderModel.from_pretrained("Rostlab/prot_t5_xl_half_uniref50-enc")
+
+            # self.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+            # self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+            self.unmasker = pipeline('fill-mask', model=model, tokenizer=tokenizer,  
+                                    #  device=self.device,  
+                                     top_k=20)
+
+   
+        
+        if kwargs['use_bert_embedding']:  
+
+            # load bert amino embeddings
+            model_name = "prot_bert"  # or 'prot_t5_xl_half_uniref50-enc'     
+            # model_name = "prot_t5_xl_half_uniref50-enc"  # or 'prot_t5_xl_half_uniref50-enc'     
+            weights = torch.load(f"data/AMINO_TYPES_andMask_EMB_{model_name}.pt")
+            print(f"loading bert amino embeddings from {model_name}")
+        
+            self.embed_aminos = nn.Embedding.from_pretrained(torch.tensor(weights), freeze=False) # [22,1024]  20 Amino + 1 Mask + 1 Padding
+            self.embed_atom = nn.Embedding(_NUM_ATOM_TYPES, _SEQ_EMBED_SIZE)
+
+            # combine bert amino embeddings and atom embeddings
+            combined = torch.cat((self.embed_aminos.weight , self.embed_atom.weight), dim=0)
+            self.embed = nn.Embedding.from_pretrained(torch.tensor(combined))               # [22,1024]  20 Amino + 1 Mask + 1 Padding
+            
+            self.W_v = nn.Sequential(
+            LayerNorm((_SEQ_EMBED_SIZE, 0)),
+            GVP((_SEQ_EMBED_SIZE, 0), _DEFAULT_V_DIM,
+                activations=(None, None), vector_gate=True)
+            )
+        else:
+            self.embed = nn.Embedding(_NUM_ATOM_TYPES, _NUM_ATOM_TYPES)
+        
         ns, _ = _DEFAULT_V_DIM
         self.dense = nn.Sequential(
             nn.Linear(ns, 2*ns), nn.ReLU(inplace=True),
             nn.Dropout(p=0.1),
             nn.Linear(2*ns, 20)
         )
+
     def forward(self, batch):
         out = super().forward(batch, scatter_mean=False)
-        return out[batch.ca_idx+batch.ptr[:-1]]
+                
+        if self.bert:
+
+            out_tmp = _reverse__amino_acids(int(batch.label))
+            tmp =  map_amino_3to1(out_tmp)
+
+            # Split each letter into separate indices
+            split_list = list(batch.chain_sequence[0])
+            # Insert 'MASK' at the specified index
+            split_list.insert(batch.ca_idx, ' [MASK]')
+            # Join the list back into a single string
+            output_string = ''.join(split_list)
+            # Create the output list with the desired format
+            output_list = [output_string]
+            bert_prediction = self.unmasker(output_list)  # --> output is a dict with the 
+            
+            softmax_GVP = out[batch.ca_idx+batch.ptr[:-1]]
+            
+            only_bert = torch.zeros_like(softmax_GVP, requires_grad=False)
+            softmax_bert = only_bert.clone()
+
+            for item in bert_prediction:
+                a = str(map_amino_1to3(item['token_str']))
+                idx = _amino_acids(a)
+                if idx < 20:
+                    confidence_score = item['score']
+                    softmax_bert[:,idx] = confidence_score
+            
+            combined = torch.cat((softmax_bert, softmax_GVP), dim=1)
+
+            combined = combined
+
+            # Pass the concatenated tensor through the MLP
+            output = self.mlp(combined)
+
+            # combined softmax [1,20]
+            return output
+        
+        else:   
+            return out[batch.ca_idx+batch.ptr[:-1]]
     
-class RESTransform(BaseTransform):
-    '''
-    Transforms dict-style entries from the ATOM3D RES dataset to add
-    a 'chain_sequences' attribute to the graph, which is a list of
-    the amino acid sequences of each chain in the protein.
-    '''
-    def __call__(self, df):
-        data = super().__call__(df)
-        with torch.no_grad():
-            chain_sequences = seq.get_chain_sequences(df)
-            chain_sequence = chain_sequences[0][-1]
-            sequence_length = len(chain_sequence)
-            chain_sequence = " ".join(list(re.sub(r"[UZOB]", "X", chain_sequence)))
-            data.update({'chain_sequence': chain_sequence, 'sequence_length': sequence_length})
-        return data
-    
-########################################################################
