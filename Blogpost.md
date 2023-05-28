@@ -13,11 +13,7 @@ In this review, we will provide an analysis of the key components of the paper, 
 
 Before proceeding further, it is essential to review related work in the area of learning from protein structure. Prior to the introduction of geometric vector perceptrons (GVPs) by Jing et al. (2021), several approaches have been explored in the field of learning from protein structure. One common approach involves the use of graph neural networks (GNNs), which excel in relational reasoning. These networks operate on the relational structure of proteins, considering the amino acid sequence and residue interactions that contribute to the overall properties of the molecule (Battaglia et al., 2018). Conversely, convolutional neural networks (CNNs) focus on the geometric aspects of the structure, directly analyzing the arrangement and orientation of atoms in 3D space (Cohen & Shashua, 2017).
 While both GNNs and CNNs have shown promise, they individually lack a comprehensive integration of both geometric and relational reasoning. This limitation motivates the introduction of GVPs as a unifying architecture that combines the strengths of these two families of methods.
-
-
-The paper ATOM3D:Tasks On Molecules in Three Dimensions 
-
-
+The paper "ATOM3D: Tasks On Molecules in Three Dimensions" by Yang et al. (2019) serves as a baseline in the field of learning from protein structure. This paper presents a comprehensive framework for benchmarking machine learning models on various tasks related to 3D molecular structures. It provides a standardized dataset and evaluation protocols for tasks such as protein structure prediction, ligand binding, and protein-protein interaction. The authors employ several models to tackle different tasks related to 3D molecular structures. These models include 3D convolutional neural networks (3DCNNs), graph neural networks (GNNs), and equivariant neural networks (ENN).
 
 
 ### Geometric vector perceptrons (GVP) explained
