@@ -216,7 +216,7 @@ The above image shows the influence of the number of heads in the transformer on
  -->
  The above image shows how the original GVP compares with the _Transformer_implementation.
 
-> Can we conclude that TransformerConv gives the learning process a head start? We still see for both that the loss is decreasing so to be sure 
+> We still see for both that the loss is decreasing so to be sure 
 > we need to train for longer. Below we combined group multiple run based on wether the Transformer was used or not, for a longer training periode. 
 
 
