@@ -132,10 +132,6 @@ This work uses the original Geometric Vector Perceptrons GVP (with vector gating
 Additionally, on the RES task, we test with using a BERT model trained on amino acids to increase model performance or speed up the learning process.
 
 ### The TransformerConv explained
-> Tested the integration of [`torch geometric`](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.TransformerConv.html?highlight=TransformerConv#torch_geometric.nn.conv.TransformerConv) 
-> Base TransformeConv from supervisor TA https://github.com/congliuUvA/gvp originally testing on sequence prediction
-
-
 > The TransformerConv is component that can be used in graph neural networks (GNNs) and uses the ground breaking Transformer architecture, originally proposed for natural language processing tasks, and adapts it for graph data.
 >
 > The core operation of TransformerConv is the multi-head dot product attention mechanism. It calculates attention coefficients $\alpha_{ij}$ between pairs of nodes to determine the importance of information flow from one node to another. The attention coefficients are computed as follows:
@@ -162,6 +158,9 @@ The attention coefficients control how much information from neighbouring nodes 
 > By dropping out attention coefficients during training, it allows each node of the model to be exposed to a stochastically sampled neighbourhood. This aids in regularization and reduces overfitting.
 
 Overall, the TransformerConv operator in the paper extends the Transformer architecture to handle graph-structured data. It leverages multi-head attention, optional edge features, and additional mechanisms like concatenation, averaging, and weighted aggregation to capture meaningful relationships and propagate information effectively through the graph. By adapting the powerful Transformer model to graph data, TransformerConv enables improved performance in various graph-based tasks, including node classification, link prediction, and graph generation.
+
+> [`torch geometric`](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.TransformerConv.html?highlight=TransformerConv#torch_geometric.nn.conv.TransformerConv) 
+> This TransformeConv has to match the inputs and output of the GVP. We used the base TransformeConv from our supervisor TA https://github.com/congliuUvA/gvp originally testing on sequence prediction.
 
 #### How it is intergrated in the original GVP-GNN
 TODO ERRIE!!!
