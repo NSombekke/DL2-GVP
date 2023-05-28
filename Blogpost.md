@@ -222,7 +222,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 <!-- <img src="./images/Trans_tov_GVP.png" alt= “” width="700" height="300">
  -->
 
-> Cab we conclude that TransformerConv gives the learning process a head start? We still see for both that the loss is decreasing so to be sure 
+> Can we conclude that TransformerConv gives the learning process a head start? We still see for both that the loss is decreasing so to be sure 
 > we need to train for longer. Below we combined group multiple run based on wether the Transformer was used or not, for a longer training periode. 
 
 
