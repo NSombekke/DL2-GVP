@@ -234,7 +234,7 @@ Below are the best performing model checkpoint performance on the evaluation dat
 </li>
 </ul>
 
-> This plot shows that after a certrain number of steps the loss stagnates and thus the model is either stuck in the loss landscape or has reached its maximum learning capability given its expressiveness. The figure shows that the transformer models (with and without pre-trained embeddings) has the capabilities to reach a lower loss. However, this might be misleading since the number of epochs used for both models is the same, but since the transformer is a bigger model it requires more computation. So in the end both runs are comparable, making the original GVP-GNN favorable.
+> This plot shows that after a certrain number of steps the loss stagnates and thus the model is either stuck in the loss landscape or has reached its maximum learning capability given its expressiveness. The figure shows that the transformer models (with and without pre-trained embeddings) have the capabilities to reach a lower loss. However, this might be misleading since the number of epochs used for both models is the same, but since the transformer is a bigger model it requires more computation. So in the end both runs are comparable, making the original GVP-GNN favorable.
 >  
 
 Below a table of the different kind of models performing on the half of the original randomized test_dataset of RES.
