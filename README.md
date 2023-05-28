@@ -115,4 +115,6 @@ To evaluate a model, simply use the `--test` argument with `run_atom3d.py` and g
 python run_atom3d.py LEP --test models/LEP/Transformer/42/LEP_0000000000.0000000_00_TF.pt --seed 42 --batch 2 --transformer
 ```
 Make sure to use the --transformer flag if you want to test a transformer model. Same holds for Transformer with bert models.
-    
+   
+### Trained model
+We uploaded the best performing models (for MSP and SMP the last checkpoint) for one seed for each task on [gdrive](https://drive.google.com/drive/folders/1oGS5stOltkyswgspq16Dn33lSzdDHBL2?usp=sharing)
