@@ -22,10 +22,10 @@ We provide a blogpost.md and GVP.ipynb walking through all the experiments.
 - [Installation](#installation)
     - [Requirements](#composer)
     - [Environment](#Environment)
-    - [Download Atom3D dataset](#download-dataset)
+    - [Download Atom3D dataset](#Download-dataset)
 - [Run experiments](#Run-experiments)
-    - [aa](#database-setup)
-- [Links](#links)
+    - [Training](#Training)
+    - [Testing](#Testing)
 
 ## Installation
 For general usage and deeper understand of individual files we refer back to the original readme [GVP](https://github.com/drorlab/gvp-pytorch/tree/main)
@@ -103,13 +103,3 @@ To evaluate a model, simply use the `--test` argument with `run_atom3d.py` and g
 python run_atom3d.py LEP --test models/LEP/Transformer/42/LEP_0000000000.0000000_00_TF.pt --seed 42 --batch 2 --transformer
 ```
     
-## Links
-
-
-
-
-* [Web site](https://aimeos.org/integrations/typo3-shop-extension/)
-* [Documentation](https://aimeos.org/docs/TYPO3)
-* [Forum](https://aimeos.org/help/typo3-extension-f16/)
-* [Issue tracker](https://github.com/aimeos/aimeos-typo3/issues)
-* [Source code](https://github.com/aimeos/aimeos-typo3)
