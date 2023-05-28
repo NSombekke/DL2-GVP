@@ -1,4 +1,4 @@
-# Wouter stinkt maar niet zo erg als Luka, maar Arie het meest
+# GVP-GNN with transformer on ATOM3d tasks
 
 ![](./images/1200px-DHRS7B_homology_model.png)
 
