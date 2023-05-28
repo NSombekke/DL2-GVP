@@ -296,7 +296,7 @@ Wouter was present in the first two weeks during the brainstorm meetings about t
 Before Niels quit the course, he was an active group member. He was present during the brainstorms in the first weeks and was mainly responsible for running the code, and reproducing the results from the original paper by Jing et al. (2021). He also set up the GitHub repository and helped with the implementation of the transformer and ProteinBERT embeddings.
 
 ### Gina
-Gina was present in the first week during the brainstorm about the mini project but quit the course in week 5.
+Gina was present in the first week during the brainstorm about the mini project. After not participating from that point on, she quit the course in week 5.
 
 ## References
 
