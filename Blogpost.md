@@ -124,7 +124,7 @@ The training process was conducted on a GPU. However, due to the larger size of 
 
 ## Novel Contribution
 This work uses the original Geometric Vector Perceptrons GVP (with vector gating) and combines a TransformerConv layer attenmpting to further improve the the baseline model.
-Additionally, on the RES task, we test with using a BERT model trained on amino acids to increase model performance or speed up the learning process.
+Additionally, on the RES task, we test with using pretrained ProteinBERT embeddings, trained on amino acids, to increase model performance or speed up the learning process.
 
 ### The TransformerConv explained
 > The TransformerConv is component that can be used in graph neural networks (GNNs) and uses the ground breaking Transformer architecture, originally proposed for natural language processing tasks, and adapts it for graph data.
