@@ -306,6 +306,10 @@ Gina was present in the first week during the brainstorm about the mini project.
 - [Sequence and structure based deep learning models represent different aspects of protein biochemistry](https://www.biorxiv.org/content/10.1101/2023.03.20.533508v1) 
 - [ProtTrans: Toward Understanding the Language of Life Through Self-Supervised Learning](https://github.com/agemagician/ProtTrans) 
   
+Battaglia, P. W., et al. (2018). Relational inductive biases, deep learning, and graph networks. arXiv preprint arXiv:1806.01261.
+  
+Cohen, N., & Shashua, A. (2017). Inductive learning on large graphs using neural networks. arXiv preprint arXiv:1708.04205.
+  
 Jankauskaite, J., Jiménez-García, B., et al. (2019). Bioinformatics, 35(3), 462–469.
 
 Jing, B., Eismann, S., Soni, P. N., & Dror, R. O. (2021). Equivariant graph neural networks for 3d macromolecular structure. arXiv preprint arXiv:2106.03843.
@@ -317,10 +321,6 @@ Ramakrishnan, R., Dral, P. O., et al. (2014). Scientific Data, 1:1-7.
 Ruddigkeit, L., Van Deursen, R., et al. (2012). Journal of Chemical Information and Modeling, 52(11), 2864–2875. 
  
 Townshend, R. J., Vögele, M., Suriana, P., Derry, A., Powers, A., Laloudakis, Y., ... & Dror, R. O. (2020). Atom3d: Tasks on molecules in three dimensions. arXiv preprint arXiv:2012.04035.
- 
-- Battaglia, P. W., et al. (2018). Relational inductive biases, deep learning, and graph networks. arXiv preprint arXiv:1806.01261.
-- Cohen, N., & Shashua, A. (2017). Inductive learning on large graphs using neural networks. arXiv preprint arXiv:1708.04205.
-- Jing, B., et al. (2021). Learning from Protein Structure with Geometric Vector Perceptrons.
 
 
   
