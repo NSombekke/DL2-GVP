@@ -293,7 +293,7 @@ Erencan participated well during the entirety of the mini project. In the beginn
 Luka was an active participant in the group during the entirety of the mini project as well. In the first weeks, after brainstorming about ideas on how to expand upon the work by Jing et al. (2021), he was mainly responsible in finding out where we could implement the transformer into the GVP architecture. After this, together with Niels and Erencan, he helped with this implementation and running the corresponding experiments. He also helped brainstorming on how to implement the ProteinBERT embeddings. For the blogpost, he worked mainly on the method section and the conclusion, as well as the overall layout.
 
 ### Wouter
-Wouter was present in the first two weeks during the brainstorm meetings about the mini project. In week 5 he started to be present during the meetings again. For the blogpost, he wrote the introduction and the weaknesses/strengths/potential parts, as well as the part about the TransformerConv.
+Wouter was present in the first two weeks during the brainstorm meetings about the mini project. In week 5 he started to be present during meetings again. For the blogpost, he wrote the introduction and the weaknesses/strengths/potential parts, as well as the part about the TransformerConv.
 
 ### Niels
 Before Niels quit the course, he was an active group member. He was present during the brainstorms in the first weeks and was mainly responsible for running the code, and reproducing the results from the original paper by Jing et al. (2021). He also set up the GitHub repository and helped with the implementation of the transformer and ProteinBERT embeddings.
@@ -302,12 +302,6 @@ Before Niels quit the course, he was an active group member. He was present duri
 Gina was present in the first week during the brainstorm about the mini project. After not participating from that point on, she quit the course in week 5.
 
 ## References
-
-- Atom3d
-- Equivariant Graph Neural Networks for 3D Macromolecular Structure
-- LEARNING  FROMPROTEINSTRUCTURE WITHGEOMETRICVECTORPERCEPTRONS
-- [Sequence and structure based deep learning models represent different aspects of protein biochemistry](https://www.biorxiv.org/content/10.1101/2023.03.20.533508v1) 
-- [ProtTrans: Toward Understanding the Language of Life Through Self-Supervised Learning](https://github.com/agemagician/ProtTrans) 
   
 Battaglia, P. W., et al. (2018). Relational inductive biases, deep learning, and graph networks. arXiv preprint arXiv:1806.01261.
   
