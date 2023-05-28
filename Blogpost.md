@@ -127,7 +127,7 @@ This work uses the original Geometric Vector Perceptrons GVP (with vector gating
 Additionally, on the RES task, we test with using pretrained ProteinBERT embeddings, trained on amino acids, to increase model performance or speed up the learning process.
 
 ### The TransformerConv explained
-> The TransformerConv is component that can be used in graph neural networks (GNNs) and uses the ground breaking Transformer architecture, originally proposed for natural language processing tasks, and adapts it for graph data.
+> The TransformerConv is a component that can be used in graph neural networks (GNNs) and uses the ground breaking Transformer architecture, originally proposed for natural language processing tasks, and adapts it for graph data.
 >
 > The core operation of TransformerConv is the multi-head dot product attention mechanism. It calculates attention coefficients $\alpha_{ij}$ between pairs of nodes to determine the importance of information flow from one node to another. The attention coefficients are computed as follows:
 > 
