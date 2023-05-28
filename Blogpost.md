@@ -257,9 +257,7 @@ The model integrated with the whole Bert model, which is used to predict the mas
 
 ### Baseline comparison original paper
 - **Important:** 
-The table 2 in the paper _Equivariant Graph Neural Networks for 3D Macromolecular Structure_ model performances of 0.451,0.082,0.072, 0.527
-on the RES dataset with the models CNN, GNN, ENN, GVP-GNN respectively are shown. We were bounded by limitations on training time and batch size, potentially 
-causing such big differences in the GVP-GNN baseline (0.247 / 0.527). We only conlusion we thus can make are on relative differences up till a certain number of training steps.
+The paper titled "Equivariant Graph Neural Networks for 3D Macromolecular Structure" presents Table 2, which displays the model performances on the RES dataset using different models: CNN, GNN, ENN, and GVP-GNN, with scores of 0.451, 0.082, 0.072, and 0.527 respectively. It is important to note that our training time and batch size were limited, which could potentially explain the significant differences observed in the GVP-GNN baseline (0.247 / 0.527). As a result, we can only draw conclusions regarding the relative differences within a certain number of training steps.
 
 This however does not hold true for the other ATOM3d tasks, were we see strong resemblance between the original GVP-GNN and the reproduced baseline in our experiments.
 
