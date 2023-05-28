@@ -64,7 +64,7 @@ The paper's proposed approach opens up several exciting possibilities for future
 Additionally, the authors' idea of replacing the linear layers within the transformerConv with GVPs introduces a novel combination of architectural components. This, approach has the potential to exploit the strengths of both GVPs and transformers, leveraging the geometric reasoning capabilities of GVPs while benefiting from the attention mechanisms and parallelizability of transformers. Further exploration and experimentation with this hybrid architecture could yield even more robust and efficient models for learning from protein structure.
 
 
-### Methods 
+### Method
 #### Datasets and tasks
 In order to assess the quality of our reimplementation of the GVP architecture, as well as the GVP architecture with the added transformer, we used the ATOM3D set of datasets (Townshend et al., 2020). ATOM3D is a collection of benchmark datasets for machine learning in structural biology. It concerns the three-dimensional structure of biomolecules, including proteins, small molecules, and nucleic acids and is designed as a benchmark for machine learning methods which operate on 3D molecular structure. The different datasets in ATOM3D also include specific tasks for our model to optimise and evaluate. For our research, we used the following sets of dataset and task from ATOM3D.
 
