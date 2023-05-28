@@ -322,21 +322,3 @@ Ruddigkeit, L., Van Deursen, R., et al. (2012). Journal of Chemical Information 
 Townshend, R. J., Vögele, M., Suriana, P., Derry, A., Powers, A., Laloudakis, Y., ... & Dror, R. O. (2020). Atom3d: Tasks on molecules in three dimensions. arXiv preprint arXiv:2012.04035.
 
 Guillaume Pagès, Benoit Charmettant, and Sergei Grudinin. Protein model quality assessment using3d oriented convolutional neural networks.Bioinformatics, 35(18):3313–3319, 2019
-  
-## Future work
-- Use better version of ProtBert, if not limited by GPU memory during training (using half precision model)
-- 
-
-## Appendix
-Batch size and Hyper params used --> see notion
-
-*Batch sizes for different model architectures*. 
-| **Task batch size** | **GVPGNN** | **GVPTransformer** |
-|----------|------------|--------------------|
-| **SMP**  |            |                    |
-| **LBA**  |            |                    |
-| **LEP**  |            |                    |
-| **MSP**  |            |                    |
-| **RES**  |            |                    |
-
-GPU specs: 
