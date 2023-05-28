@@ -205,7 +205,7 @@ Every task has been trained on three seeds (0,34,42) on 50 epochs with same para
 Below are the best performing model checkpoint performance on the evaluation dataset.
 | **Task** | **Metric** | **GVPGNN**       | **GVPTransformer** |
 |----------|------------|------------------|--------------------|
-| **SMP**  | mae        | **18.64 ± 0.20** | 18.77 ± 	0.19       |
+| **SMP**  | MAE        | **18.64 ± 0.20** | 18.77 ± 	0.19       |
 | **LBA**  | RMSE       | 1.64 ± 0.07      | **1.58 ± 0.03**    |
 | **LEP**  | AUROC      | 0.53 ± 0.06      | **0.61 ± 0.04**    |
 |          | AUPRC      |  0.41 ±  0.03 |   **0.47 ± 0.03**|
