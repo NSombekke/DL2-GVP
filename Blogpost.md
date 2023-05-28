@@ -280,7 +280,6 @@ The outcomes derived from the experiment, where we use the combined GVP-GNN and 
   
 
 ### Discussion
-> Possible reasons for the results
 
 The ATOM3D datasets can be roughly grouped into four categories that represent a wide range of problems, spanning single molecular structures and interactions between biomolecules as well as molecular functional and design/engineering tasks. The funcional tasks are specifically the LEP and SMP tasks. From our results we saw that the only task in which there was a significant difference between the regular GVP-GNN and the GVP-GNN using the TransformerConv layers was the LEP task. For the SMP task, the regular GVP-GNN seemed to achieve slightly (but not significantly) beter evaluation scores. From these findings one might conclude that the GVP-GNN + Transformer works best on molecular functional tasks.
 
