@@ -77,9 +77,9 @@ In order to assess the quality of our reimplementation of the GVP architecture, 
   </blockquote></details>
 </blockquote></details>
 </li>
-<li> <details><summary>SMP</summary>
-  <details><summary>The SMP dataset uses the QM9 dataset (Ruddigkeit et al., 2012; Ramakrishnan et al., 2014)(**still have to properly cite everything**), which contains structures and energetic, electronic, and thermodynamic properties for 134,000 stable small organic molecules, obtained from quantum-chemical calculations. The task here is to predict all molecular properties from the ground-state structure.</summary>
-</details>
+<li> <details><summary>SMP</summary><blockquote>
+  <summary>The SMP dataset uses the QM9 dataset (Ruddigkeit et al., 2012; Ramakrishnan et al., 2014)(**still have to properly cite everything**), which contains structures and energetic, electronic, and thermodynamic properties for 134,000 stable small organic molecules, obtained from quantum-chemical calculations. The task here is to predict all molecular properties from the ground-state structure.</summary>
+</blockquote>
 </li>
 <li> <details><summary>LEP</summary><blockquote>
   <details><summary>This is a novel dataset created by curating proteins from several families with both ”active” and ”inactive” state structures, and model in 527 small molecules with known activating or inactivating function using the program Glide. The corresponding task here can be formulated as a binary classification tsk where the goal is to predict whether or not a molecule bound to the structures will be an activator of the protein's function or not.</summary><blockquote>
