@@ -251,8 +251,8 @@ Below a table of the different kind of models performing on the half of the orig
 |          |            | 12     | 0.247       | 0.201                   | 0.209                               | 0.029                                           |
 
 
-### GVPTransformer + ProteinBERT prediction
-Model integraed with the whole Bert model used to predict the masked amino acid label fails to learn. Considering that we use the already tested MLP integration strategy, described above, to combine both the plain GVP and the Bert prediction we exclude any fallacy here. However this could be attributed to the incompatibility of the used representations. The representations used by the BERT LLM and the GVP-GNN models may not be compatible or might have different levels of abstraction. If the representations from the BERT LLM model and the GVP-GNN model are not effectively combined, it could lead to limited or no improvement in performance. We observe that incorperating the bert model into the GVP prevents the model from learning. 
+### GVP-GNN Transformer + ProteinBERT prediction
+Model integraed with the whole Bert model used to predict the masked amino acid label fails to learn. Considering that we use the already tested MLP integration strategy, described above, to combine both the plain GVP-GNN and the Bert prediction we exclude any fallacy here. However this could be attributed to the incompatibility of the used representations. The representations used by the BERT LLM and the GVP-GNN models may not be compatible or might have different levels of abstraction. If the representations from the BERT LLM model and the GVP-GNN model are not effectively combined, it could lead to limited or no improvement in performance. We observe that incorperating the bert model into the GVP-GNN prevents the model from learning. 
 <ul>
 <li> <details><summary>See training loss of the bert model</summary><blockquote>
   <details><summary>   https://api.wandb.ai/links/dl2-gvp-team34/izbr4qtl
@@ -272,19 +272,19 @@ This however does not hold true for the other ATOM3d tasks, were we see strong r
 
 ## Conclusion
 
-During our project, we have tried to demonstrate the effectiveness of the GVP's proposed by Jing et al. (2021) in tackling different tasks on 3D molecular structures, including proteins, small molecules, and nucleic acids. Besides this, we introduced a new architecture, "the TransformerConv", to the original GVP to see if we could improve upon the obtained results. From the results it seems that, for most of the Atom3D tasks, there is no significant difference between the performance of the GVPGNN and the GVPGNN + Transformer. The GVPGNN without transformer seems to obtain slightly better evaluation scores for the SMP and MSP tasks. However, these deviations seem to fall within the standard deviation. The GVPGNN with transformer seems to obtain (not significantly) higher evaluation scores for the LBA task. However, for the LEP task, there seems to be a significant improvement from the GVPGNN + Transformer over the regular GVPCNN.
+During our project, we have tried to demonstrate the effectiveness of the GVP-GNN proposed by Jing et al. (2021) in tackling different tasks on 3D molecular structures, including proteins, small molecules, and nucleic acids. More specifically, we introduced a new architecture, "the TransformerConv", to the original model to see if we could improve upon the obtained results from the regular GVP-GNN. From the results it seems that, for most of the Atom3D tasks, there is no significant difference between the performance of the GVP-GNN and the GVP-GNN + Transformer. The GVP-GNN without transformer seems to obtain slightly better evaluation scores for the SMP and MSP tasks. However, these deviations seem to fall within the standard deviation. The GVP-GNN with transformer seems to obtain (not significantly) higher evaluation scores for the LBA task. However, for the LEP task, there seems to be a significant improvement from the GVPGNN + Transformer over the regular GVP-GNN.
   
 > Does Transformer implementation in GVP results in better results or faster learning?
   
-Given the same computational resources and same computation time the GVP does not seem to benefit from using the transformer or transformer with pre-trained Bert embedding on the RES task.
-The outcomes derived from the experiment, where we use the combined GVP and BERT predictions, exhibit a significant degree of uncertainty, rendering them unreliable for drawing definitive conclusions.
+Given the same computational resources and same computation time the GVP-GNN does not seem to benefit from using the transformer or transformer with pre-trained Bert embedding on the RES task.
+The outcomes derived from the experiment, where we use the combined GVP-GNN and BERT predictions, exhibit a significant degree of uncertainty, rendering them unreliable for drawing definitive conclusions.
 
   
 
 ### Discussion
 > Possible reasons for the results
 
-The ATOM3D datasets can be roughly grouped into four categories that represent a wide range of problems, spanning single molecular structures and interactions between biomolecules as well as molecular functional and design/engineering tasks. The funcional tasks are specifically the LEP and SMP tasks. From our results we saw that the only task in which there was a significant difference between the regular GVP and the GVP using the TransformerConv layers was the LEP task. For the SMP task, the regular GVP seemed to achieve slightly (but not significantly) beter evaluation scores. From these findings one might conclude that the GVPCNN + Transformer works best on molecular functional tasks.
+The ATOM3D datasets can be roughly grouped into four categories that represent a wide range of problems, spanning single molecular structures and interactions between biomolecules as well as molecular functional and design/engineering tasks. The funcional tasks are specifically the LEP and SMP tasks. From our results we saw that the only task in which there was a significant difference between the regular GVP-GNN and the GVP-GNN using the TransformerConv layers was the LEP task. For the SMP task, the regular GVP-GNN seemed to achieve slightly (but not significantly) beter evaluation scores. From these findings one might conclude that the GVP-GNN + Transformer works best on molecular functional tasks.
 
 
 ## Individual Student's Contribution
