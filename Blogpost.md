@@ -126,10 +126,9 @@ The training process was conducted on a GPU; however, due to the larger size of 
  
 
 ## Novel Contribution
-Description of Novel contributions of our work.
+This work uses the original Geometric Vector Perceptrons GVP (with vector gating) and combines a TransformerConv layer attenmpting to further improve the the baseline model.
+Additionally, on the RES task, we test with using a BERT model trained on amino acids to increase model performance or speed up the learning process.
 
-This work uses the original Geometric Vector Perceptrons GVP and combines a TransformerConv layer attenmpting to further improve the the baseline model.
-  
 ### The TransformerConv explained
 > Tested the integration of [`torch geometric`](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.TransformerConv.html?highlight=TransformerConv#torch_geometric.nn.conv.TransformerConv) 
 > Base TransformeConv from supervisor TA https://github.com/congliuUvA/gvp originally testing on sequence prediction
