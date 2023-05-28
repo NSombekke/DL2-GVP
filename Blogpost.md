@@ -254,7 +254,7 @@ Below a table of the different kind of models performing on the half of the orig
 ### GVPTransformer + ProteinBERT prediction
 Model integraed with the whole Bert model used to predict the masked amino acid label fails to learn. Considering that we use the already tested MLP integration strategy, described above, to combine both the plain GVP and the Bert prediction we exclude any fallacy here. However this could be attributed to the incompatibility of the used representations. The representations used by the BERT LLM and the GVP-GNN models may not be compatible or might have different levels of abstraction. If the representations from the BERT LLM model and the GVP-GNN model are not effectively combined, it could lead to limited or no improvement in performance. We observe that incorperating the bert model into the GVP prevents the model from learning. 
 <ul>
-<li> <details><summary>Same plot ungrouped</summary><blockquote>
+<li> <details><summary>See training loss of the bert model</summary><blockquote>
   <details><summary>   https://api.wandb.ai/links/dl2-gvp-team34/izbr4qtl
 </summary></details>
 </blockquote></details>
