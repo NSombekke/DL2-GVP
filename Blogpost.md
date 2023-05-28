@@ -163,7 +163,6 @@ Overall, the TransformerConv operator in the paper extends the Transformer archi
 > This TransformeConv has to match the inputs and output of the GVP. We used the base TransformeConv from our supervisor TA https://github.com/congliuUvA/gvp originally testing on sequence prediction.
 
 #### How it is intergrated in the original GVP-GNN
-TODO ERRIE!!!
 
 - To integrate within the whole sequential GVP model consisting of different kind of layer under which the GVPConv `MessagePassing` Layer. We replaced the GVPConv layer by the TransformerConv layer described above. However, within this TransformerConv `MessagePassing` layer we alter it's linear layers with the GVP layer.
 
@@ -204,8 +203,7 @@ The second level uses the masked language model function to predict the _[MASK]_
 
 
 ## Results
-Results of our work with link to the code in Jupyter Notebook.
-Every task has been trained on three seeds (0,34,42) on n epochs with the default params** (see appendix)   
+Every task has been trained on three seeds (0,34,42) on 50 epochs with same parameters as the original GVP-GNN.   
 Below are the best performing model checkpoint performance on the evaluation dataset.
 | **Task** | **Metric** | **GVPGNN**       | **GVPTransformer** |
 |----------|------------|------------------|--------------------|
@@ -216,7 +214,6 @@ Below are the best performing model checkpoint performance on the evaluation dat
 | **MSP**  | AUROC      | **0.69 ±	0.03**   | 0.67	± 0.01         |
 |          | AUPRC      | **0.25±0,03**    | 0,24±0,03          |
 
--- **INCLUDE BASELINE GVP or GVPTransformer with 0 epochs of learning!!!**
 
 ### Residue Identity (RES) dataset
 #### What is the influence of the number of transformer head?
@@ -322,11 +319,8 @@ Townshend, R. J., Vögele, M., Suriana, P., Derry, A., Powers, A., Laloudakis, Y
 Guillaume Pagès, Benoit Charmettant, and Sergei Grudinin. Protein model quality assessment using3d oriented convolutional neural networks.Bioinformatics, 35(18):3313–3319, 2019
   
 ## Future work
-- Use better version of ProtBert, if not limited by GPU memory
-- Zero epochs trained baseline model
-- TODO: add newer scripts errie 
-- Add trained models
-
+- Use better version of ProtBert, if not limited by GPU memory during training (using half precision model)
+- 
 
 ## Appendix
 Batch size and Hyper params used --> see notion
