@@ -185,7 +185,7 @@ TransformerConv(MessagePassing):
         ...
 ```
 
-> __Note__: This is different than using the (Structured) Transformer architecture as the whole model which performance worse than the GVP, as was shown in the paper "Learning from ...".
+> __Note__: This is different than using the (Structured) Transformer architecture as the whole model which performance worse than the GVP, as was shown in the paper "Learning from Protein Structure with Geometric Vector Perceptrons".
 
 ### BERT language model 
 The atom3d tasks share a common underlying representation and problem domain, presenting an opportunity for _transfer learning_ to improve performance on data-poor tasks. Therefore, the authors use transfer learning technique to leverage the model weight trained on data-rich (SMP,RES) settings to improve model training on data-poor (MSP, LEP) dataset. 
