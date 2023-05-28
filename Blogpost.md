@@ -66,9 +66,8 @@ In order to assess the quality of our reimplementation of the GVP architecture, 
 
 <ol>
 <li> <details><summary>RES</summary><blockquote>
-  <details><summary>The RES dataset consists of atomic environments extracted from nonredundant structures in the PDB. This dataset is accompanied by a classification task where the goal is to predict the identity of the amino acid in the center of the environment based on all other atoms in that environment.</summary><blockquote>
-    :smile:
-  </blockquote></details>
+  <details><summary>The RES dataset consists of atomic environments extracted from nonredundant structures in the PDB. This dataset is accompanied by a classification task where the goal is to predict the identity of the amino acid in the center of the environment based on all other atoms in that environment.</summary>
+  </details>
 </blockquote></details>
 </li>
 <li> <details><summary>LBA</summary><blockquote>
@@ -81,15 +80,13 @@ In order to assess the quality of our reimplementation of the GVP architecture, 
 </blockquote><details>
 </li>
 <li> <details><summary>LEP</summary><blockquote>
-  <details><summary>This is a novel dataset created by curating proteins from several families with both ”active” and ”inactive” state structures, and model in 527 small molecules with known activating or inactivating function using the program Glide. The corresponding task here can be formulated as a binary classification tsk where the goal is to predict whether or not a molecule bound to the structures will be an activator of the protein's function or not.</summary><blockquote>
-    :smile:
-  </blockquote></details>
+  <details><summary>This is a novel dataset created by curating proteins from several families with both ”active” and ”inactive” state structures, and model in 527 small molecules with known activating or inactivating function using the program Glide. The corresponding task here can be formulated as a binary classification tsk where the goal is to predict whether or not a molecule bound to the structures will be an activator of the protein's function or not.</summary>
+  </details>
 </blockquote></details>
 </li>
 <li> <details><summary>MSP</summary><blockquote>
-  <details><summary>This is a novel dataset which was derived by collecting single-point mutations from the SKEMPI database (Jankauskaitė et al., 2019)(**properly cite**) and model each mutation into the structure to produce mutated structures. The task here can be seen as a binary classification task where we predict whether the stability of the complex increases as a result of the mutation.</summary><blockquote>
-    :smile:
-  </blockquote></details>
+  <details><summary>This is a novel dataset which was derived by collecting single-point mutations from the SKEMPI database (Jankauskaitė et al., 2019)(**properly cite**) and model each mutation into the structure to produce mutated structures. The task here can be seen as a binary classification task where we predict whether the stability of the complex increases as a result of the mutation.</summary>
+  </details>
 </blockquote></details>
 </li>
 </ol>
