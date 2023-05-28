@@ -114,17 +114,18 @@ Accuracy is a common evaluation metric used in classification tasks to measure t
 
 
 #### Vector Gating
-Author of ‘Equivariant Graph Neural …’ show that a modifiedGVP 
-shows performance improvement on almost all ATOM3D tasks.
+Authors of [Equivariant Graph Neural Networks for 3D Macromolecular Structure](https://arxiv.org/abs/2106.03843) show that a modifiedGVP 
+improves performance on most of the ATOM3D tasks.
 
 The original geometric vector perceptron(GVP) as described in Jing et al. (2021) has been modified in the last step before output vector features V’ such that we allow information to propagate from the scalar channels to the vector channels, see appendix …
 The vector gating modification, enables the GVP to inherit the Universal Approximation Property  of dense  layers  with  respect  to rotation- and reflection-equivariant functions F:Rν×3→R3, in addition to the approximation property forinvariantfunctions shown by Jing et al. (2021).
+We therefore made the decision to enable vector gating on all our model experiments. 
 
-Equivariant Graph Neural Networks for 3D Macromolecular Structure paper, toont aan dat ie beter is dus hebben vector gating aangezet bij elke experiment
-
-<!-- **TODO: cite**
-
-- Batch size different for GVPGNN vs GVP TransformerG -->
+#### Batch size
+Trainig was done on GPU, however the model with the Transformer 
+integrated in the GVP is bigger and thus the GPU can't fit the same batch size.
+We performed experiments with multiple seeds and thus expect the batch size to not 
+influence the training process significantly.
  
 
 ## Novel Contribution
@@ -322,10 +323,6 @@ Townshend, R. J., Vögele, M., Suriana, P., Derry, A., Powers, A., Laloudakis, Y
 Batch size and Hyper params used --> see notion
 
 *Batch sizes for different model architectures*. 
-Trainig was done on GPU, however the model with the Transformer 
-integrated in the GVP is bigger and thus the GPU can't fit the same batch size.
-We performed experiments with multiple seeds and thus expect the batch size to not 
-influence the training process significantly.
 | **Task batch size** | **GVPGNN** | **GVPTransformer** |
 |----------|------------|--------------------|
 | **SMP**  |            |                    |
