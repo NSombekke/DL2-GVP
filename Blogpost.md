@@ -72,13 +72,12 @@ In order to assess the quality of our reimplementation of the GVP architecture, 
 </blockquote></details>
 </li>
 <li> <details><summary>LBA</summary><blockquote>
-  <details><summary>The LBA dataset is uses a curated database containing protein-ligand complexes from the PDB and their corresponding binding strengths. The task at hand is We predict pK = -log(K), where K is the binding affinity in Molar units.</summary><blockquote>
-    :smile:
-  </blockquote></details>
+  <details><summary>The LBA dataset is uses a curated database containing protein-ligand complexes from the PDB and their corresponding binding strengths. The task at hand is We predict pK = -log(K), where K is the binding affinity in Molar units.</summary>
+  </details>
 </blockquote></details>
 </li>
 <li> <details><summary>SMP</summary><blockquote>
-  <details>The SMP dataset uses the QM9 dataset (Ruddigkeit et al., 2012; Ramakrishnan et al., 2014)(**still have to properly cite everything**), which contains structures and energetic, electronic, and thermodynamic properties for 134,000 stable small organic molecules, obtained from quantum-chemical calculations. The task here is to predict all molecular properties from the ground-state structure.
+  <details><summary>The SMP dataset uses the QM9 dataset (Ruddigkeit et al., 2012; Ramakrishnan et al., 2014)(**still have to properly cite everything**), which contains structures and energetic, electronic, and thermodynamic properties for 134,000 stable small organic molecules, obtained from quantum-chemical calculations. The task here is to predict all molecular properties from the ground-state structure.</summary>
 </blockquote><details>
 </li>
 <li> <details><summary>LEP</summary><blockquote>
