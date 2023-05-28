@@ -99,7 +99,7 @@ In order to assess the quality of our reimplementation of the GVP architecture, 
 Since the data and tasks that are described above differ, they use different evaluation metrics to assess the quality of the model. We will describe the used metrics here briefly.
 
 **Mean Absolute Error (MAE) -** 
-This metric measures errors between paired observations that are supposed to express the same phenomenon. It is calculated as the sum of absolute errors divided by the sample size, making it an average over the absolute errors. A lower MAE indicates better classification. The MAE can be calculated as follows: 
+This metric measures errors between paired observations that are supposed to express the same phenomenon. It is calculated as the sum of absolute errors divided by the sample size, making it an average over the absolute errors. A lower MAE indicates better classification. The MAE can be calculated as follows: $$MAE= {\sum^{n}_{i=1} |y_i - x_i| \over n} = {\sum^{n}_{i=1} |e_i| \over n}$$
   
   $$MAE= \frac{\sum^{n}_{i=1} |y_i - x_i|}{n} = \frac{\sum^{n}_{i=1} |e_i|}{n}$$
 
