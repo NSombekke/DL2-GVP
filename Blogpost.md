@@ -122,15 +122,14 @@ The vector gating modification, enables the GVP to inherit the Universal Approxi
 We therefore made the decision to enable vector gating on all our model experiments. 
 
 #### Batch size
-Trainig was done on GPU, however the model with the Transformer 
-integrated in the GVP is bigger and thus the GPU can't fit the same batch size.
-We performed experiments with multiple seeds and thus expect the batch size to not 
-influence the training process significantly.
+The training process was conducted on a GPU; however, due to the larger size of the model incorporating the Transformer within the GVP, it was not feasible to use the same batch size as in previous experiments. Despite this limitation, we performed experiments with multiple seeds, mitigating the potential impact of varying batch sizes on the training process.
  
 
 ## Novel Contribution
 Description of Novel contributions of our work.
 
+This work uses the original Geometric Vector Perceptrons GVP and combines a TransformerConv layer attenmpting to further improve the the baseline model.
+  
 ### The TransformerConv explained
 > Tested the integration of [`torch geometric`](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.TransformerConv.html?highlight=TransformerConv#torch_geometric.nn.conv.TransformerConv) 
 > Base TransformeConv from supervisor TA https://github.com/congliuUvA/gvp originally testing on sequence prediction
