@@ -4,7 +4,7 @@
 - Erencan Tatar
 
 Read the report on [our Blogpost](./Blogpost.md).
-
+See https://erencantatar.github.io/DL2-GVP/ for better readability
 
 -----
 
