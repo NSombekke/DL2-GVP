@@ -274,7 +274,11 @@ This however does not hold true for the other ATOM3d tasks, were we see strong r
 
 > Does using  
 
-During our project, we have tried to demonstrate the effectiveness of the GVP's proposed by Jing et al. (2021) in tackling different tasks on 3D molecular structures, including proteins, small molecules, and nucleic acids. Besides this, we introduced a new architecture, "the TransformerConv", to the original GVP to see if we could improve upon the obtained results. From the results it seems that, for most of the Atom3D tasks, there is no significant difference between the performance of the GVPCNN and the GVPCNN + Transformer. The GVPCNN without transformer seems to obtain slightly better evaluation scores for the SMP and MSP tasks. However, these deviations seem to fall within the standard deviation. The GVPCNN with transformer seems to obtain (not significantly) higher evaluation scores for the LBA task. However, for the LEP task, there seems to be a significant improvement from the GVPCNN + Transformer over the regular GVPCNN.
+During our project, we have tried to demonstrate the effectiveness of the GVP's proposed by Jing et al. (2021) in tackling different tasks on 3D molecular structures, including proteins, small molecules, and nucleic acids. Besides this, we introduced a new architecture, "the TransformerConv", to the original GVP to see if we could improve upon the obtained results. From the results it seems that, for most of the Atom3D tasks, there is no significant difference between the performance of the GVPGNN and the GVPGNN + Transformer. The GVPGNN without transformer seems to obtain slightly better evaluation scores for the SMP and MSP tasks. However, these deviations seem to fall within the standard deviation. The GVPGNN with transformer seems to obtain (not significantly) higher evaluation scores for the LBA task. However, for the LEP task, there seems to be a significant improvement from the GVPGNN + Transformer over the regular GVPCNN.
+  
+Given the same computational resources and same computation time 
+  
+
 
 ### Discussion
 > Describe possible reasons for results
