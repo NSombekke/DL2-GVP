@@ -269,19 +269,33 @@ causing such big differences in the GVP-GNN baseline (0.247 / 0.527). We only co
 This however does not hold true for the other ATOM3d tasks, were we see strong resemblance between the original GVP-GNN and the reproduced baseline in our experiments.
 
 ## Conclusion
-
-During our project, we have tried to demonstrate the effectiveness of the GVP-GNN proposed by Jing et al. (2021) in tackling different tasks on 3D molecular structures, including proteins, small molecules, and nucleic acids. More specifically, we introduced a new architecture, "the TransformerConv", to the original model to see if we could improve upon the obtained results from the regular GVP-GNN. From the results it seems that, for most of the Atom3D tasks, there is no significant difference between the performance of the GVP-GNN and the GVP-GNN + Transformer. The GVP-GNN without transformer seems to obtain slightly better evaluation scores for the SMP and MSP tasks. However, these deviations seem to fall within the standard deviation. The GVP-GNN with transformer seems to obtain (not significantly) higher evaluation scores for the LBA task. However, for the LEP task, there seems to be a significant improvement from the GVPGNN + Transformer over the regular GVP-GNN.
   
-> Does Transformer implementation in GVP results in better results or faster learning?
+In conclusion, our project aimed to investigate the effectiveness of the GVP-GNN model proposed by Jing et al. (2021) in various tasks related to 3D molecular structures. We introduced the TransformerConv architecture as an extension to the original GVP-GNN to explore potential improvements in performance. Our findings suggest that the performance of the GVP-GNN and the GVP-GNN + TransformerConv is comparable across most of the Atom3D tasks. The GVP-GNN without the transformer showed slightly better performance in the SMP and MSP tasks, although these differences were within the standard deviation. However, the GVP-GNN + TransformerConv demonstrated a significant improvement in the LEP task compared to the regular GVP-GNN.
+
+When analyzing the influence of the number of transformer heads on the RES dataset, we observed that increasing the number of heads did not result in substantial performance improvements. The original GVP-GNN exhibited comparable performance to the GVP-GNN + TransformerConv models, suggesting that the TransformerConv did not provide a significant advantage in terms of learning speed or overall results on the RES dataset.
+
+Furthermore, the integration of the GVP-GNN with the ProteinBERT prediction model did not yield favorable results. The combination of representations from the BERT LLM and GVP-GNN models might not be compatible or have different levels of abstraction, which could limit the performance improvement. As a result, the GVP-GNN + ProteinBERT model failed to learn effectively.
+
+It is important to note that due to limitations on training time and batch size, we could not achieve performance levels similar to those reported in the original paper for the GVP-GNN baseline on the RES dataset. However, our experiments demonstrated relative differences between the models, suggesting that the GVP-GNN + TransformerConv may have potential for improved performance on certain tasks.
+
+<!-- During our project, we have tried to demonstrate the effectiveness of the GVP-GNN proposed by Jing et al. (2021) in tackling different tasks on 3D molecular structures, including proteins, small molecules, and nucleic acids. More specifically, we introduced a new architecture, "the TransformerConv", to the original model to see if we could improve upon the obtained results from the regular GVP-GNN. From the results it seems that, for most of the Atom3D tasks, there is no significant difference between the performance of the GVP-GNN and the GVP-GNN + Transformer. The GVP-GNN without transformer seems to obtain slightly better evaluation scores for the SMP and MSP tasks. However, these deviations seem to fall within the standard deviation. The GVP-GNN with transformer seems to obtain (not significantly) higher evaluation scores for the LBA task. However, for the LEP task, there seems to be a significant improvement from the GVPGNN + Transformer over the regular GVP-GNN. -->
+  
+<!-- > Does Transformer implementation in GVP results in better results or faster learning?
   
 Given the same computational resources and same computation time the GVP-GNN does not seem to benefit from using the transformer or transformer with pre-trained Bert embedding on the RES task.
-The outcomes derived from the experiment, where we use the combined GVP-GNN and BERT predictions, exhibit a significant degree of uncertainty, rendering them unreliable for drawing definitive conclusions.
+The outcomes derived from the experiment, where we use the combined GVP-GNN and BERT predictions, exhibit a significant degree of uncertainty, rendering them unreliable for drawing definitive conclusions. -->
 
   
 
 ### Discussion
+The tasks in the ATOM3D dataset cover a wide range of molecular structure-related problems, including interactions between biomolecules and molecular functional and design/engineering tasks. Our findings indicate that the GVP-GNN + TransformerConv architecture is particularly effective in molecular functional tasks, such as the LEP task. This suggests that the TransformerConv layers might provide benefits in capturing functional relationships between molecular structures.
 
-The ATOM3D datasets can be roughly grouped into four categories that represent a wide range of problems, spanning single molecular structures and interactions between biomolecules as well as molecular functional and design/engineering tasks. The funcional tasks are specifically the LEP and SMP tasks. From our results we saw that the only task in which there was a significant difference between the regular GVP-GNN and the GVP-GNN using the TransformerConv layers was the LEP task. For the SMP task, the regular GVP-GNN seemed to achieve slightly (but not significantly) beter evaluation scores. From these findings one might conclude that the GVP-GNN + Transformer works best on molecular functional tasks.
+While the GVP-GNN + TransformerConv did not consistently outperform the regular GVP-GNN across all tasks, it demonstrated potential for improvement in specific tasks. The choice of architecture depends on the task at hand, and further exploration is needed to identify the strengths and weaknesses of each model in different contexts. Our project contributes to the understanding of the GVP-GNN model and its extensions, shedding light on their performance and potential applications in the field of 3D molecular structure analysis.  
+  
+  
+<!-- > Possible reasons for the results
+
+The ATOM3D datasets can be roughly grouped into four categories that represent a wide range of problems, spanning single molecular structures and interactions between biomolecules as well as molecular functional and design/engineering tasks. The funcional tasks are specifically the LEP and SMP tasks. From our results we saw that the only task in which there was a significant difference between the regular GVP-GNN and the GVP-GNN using the TransformerConv layers was the LEP task. For the SMP task, the regular GVP-GNN seemed to achieve slightly (but not significantly) beter evaluation scores. From these findings one might conclude that the GVP-GNN + Transformer works best on molecular functional tasks. -->
 
 
 ## Individual Student's Contribution
@@ -292,7 +306,7 @@ Erencan participated well during the entirety of the mini project. In the beginn
 Luka was an active participant in the group during the entirety of the mini project as well. In the first weeks, after brainstorming about ideas on how to expand upon the work by Jing et al. (2021), he was mainly responsible in finding out where we could implement the transformer into the GVP architecture. After this, together with Niels and Erencan, he helped with this implementation and running the corresponding experiments. He also helped brainstorming on how to implement the ProteinBERT embeddings. For the blogpost, he worked mainly on the method section and the conclusion, as well as the overall layout.
 
 ### Wouter
-Wouter was present in the first two weeks during the brainstorm meetings about the mini project. In week 5 he started to be present during meetings again. For the blogpost, he wrote the introduction and the weaknesses/strengths/potential parts, as well as the part about the TransformerConv.
+Wouter was present in the first two weeks during the brainstorm meetings about the mini project. During week 5 he started to be present again. For the blogpost, he wrote the introduction and the weaknesses/strengths/potential parts, as well as the part about the TransformerConv, the conclusion and discussion.He asked the team members multiple times to help him understand the code, which didn't happen, therefore he only focused on writing.
 
 ### Niels
 Before Niels quit the course, he was an active group member. He was present during the brainstorms in the first weeks and was mainly responsible for running the code, and reproducing the results from the original paper by Jing et al. (2021). He also set up the GitHub repository and helped with the implementation of the transformer and ProteinBERT embeddings.
