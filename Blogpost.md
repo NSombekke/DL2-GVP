@@ -282,8 +282,22 @@ The outcomes derived from the experiment, where we use the combined GVP and BERT
 > Possible reasons for the results
 The ATOM3D datasets can be roughly grouped into four categories that represent a wide range of problems, spanning single molecular structures and interactions between biomolecules as well as molecular functional and design/engineering tasks. The funcional tasks are specifically the LEP and SMP tasks. From our results we saw that the only task in which there was a significant difference between the regular GVP and the GVP using the TransformerConv layers was the LEP task. For the SMP task, the regular GVP seemed to achieve slightly (but not significantly) beter evaluation scores. From these findings one might conclude that the GVPCNN + Transformer works best on molecular functional tasks.
 
+
 ## Individual Student's Contribution
-Description of what each student's contribution to the project was.
+### Erencan
+Erencan participated well during the entirety of the mini project. In the beginning, he was mainly responsible for running the code from Jing et al. (2021) and reproducing the results, together with Niels. After this, he helped with the implementation of the transformer into the GVP architecture. When we managed to implement this, Erencan was mainly responsible for the implementation of the pre-trained ProteinBERT embeddings. For the blogpost, the part about ProteinBERT, as well as other theoretical parts and the visualisation of the results, was mainly what Erencan worked on.
+
+### Luka
+Luka was an active participant in the group during the entirety of the mini project as well. In the first weeks, after brainstorming about ideas on how to expand upon the work by Jing et al. (2021), he was mainly responsible in finding out where we could implement the transformer into the GVP architecture. After this, together with Niels and Erencan, he helped with this implementation and running the corresponding experiments. He also helped brainstorming on how to implement the ProteinBERT embeddings. For the blogpost, he worked mainly on the method section and the conclusion, as well as the overall layout.
+
+### Wouter
+Wouter was present in the first two weeks during the brainstorm meetings about the mini project. In week 5 he started to be present during the meetings again. For the blogpost, he wrote the introduction and the weaknesses/strengths/potential parts, as well as the part about the TransformerConv.
+
+### Niels
+Before Niels quit the course, he was an active group member. He was present during the brainstorms in the first weeks and was mainly responsible for running the code, and reproducing the results from the original paper by Jing et al. (2021). He also set up the GitHub repository and helped with the implementation of the transformer and ProteinBERT embeddings.
+
+### Gina
+Gina was present in the first week during the brainstorm about the mini project but quit the course in week 5.
 
 ## References
 
