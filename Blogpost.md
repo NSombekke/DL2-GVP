@@ -9,9 +9,15 @@ To bridge this gap, the paper titled "Learning from Protein Structure with Geome
 
 The main objective of this study is to demonstrate the effectiveness of GVP's in tackling two fundamental challenges in learning from protein structure: model quality assessment (MQA) and computational protein design (QPD). Through comprehensive experiments and evaluations, the authors compare their approach with existing classes of architectures, including state-of-the-art convolutional neural networks and graph neural networks. The results showcase their state-of-the-art performance of their proposed method in both problem domains, highlighting its potential to advance the field of learning from protein structure.
 
-In this review, we will provide an analysis of the key components of the paper, discussing its strengths, weaknesses, and potential implications. Additionally, we will present our group's response to the paper, highlighting our novel contribution and its relevance to the research presented. Finally, we will delve into the results obtained by our work, linking them to the code available in the accompanying Jupyter notebook. By the end of this blogpost, readers will gain a comprehensive understanding of the significance of the paper's findings and our contributions to the field.
+In this review, we will provide an analysis of the key components of the paper, discussing its strengths, weaknesses, and potential implications. Additionally, we will present our group's response to the paper, highlighting our novel contribution and its relevance to the research presented. Finally, we will delve into the results obtained by our work, linking them to accompanying python files. By the end of this blogpost, readers will gain a comprehensive understanding of the significance of the paper's findings and our contributions to the field.
 
-Before proceeding further, it is essential to review related work in the area of learning from protein structure, setting the stage for the novel approach proposed by Jing et al.
+Before proceeding further, it is essential to review related work in the area of learning from protein structure. Prior to the introduction of geometric vector perceptrons (GVPs) by Jing et al. (2021), several approaches have been explored in the field of learning from protein structure. One common approach involves the use of graph neural networks (GNNs), which excel in relational reasoning. These networks operate on the relational structure of proteins, considering the amino acid sequence and residue interactions that contribute to the overall properties of the molecule (Battaglia et al., 2018). Conversely, convolutional neural networks (CNNs) focus on the geometric aspects of the structure, directly analyzing the arrangement and orientation of atoms in 3D space (Cohen & Shashua, 2017).
+While both GNNs and CNNs have shown promise, they individually lack a comprehensive integration of both geometric and relational reasoning. This limitation motivates the introduction of GVPs as a unifying architecture that combines the strengths of these two families of methods.
+
+
+The paper ATOM3D:Tasks On Molecules in Three Dimensions 
+
+
 
 
 ### Geometric vector perceptrons (GVP) explained
@@ -276,7 +282,9 @@ This however does not hold true for the other ATOM3d tasks, were we see strong r
 
 During our project, we have tried to demonstrate the effectiveness of the GVP's proposed by Jing et al. (2021) in tackling different tasks on 3D molecular structures, including proteins, small molecules, and nucleic acids. Besides this, we introduced a new architecture, "the TransformerConv", to the original GVP to see if we could improve upon the obtained results. From the results it seems that, for most of the Atom3D tasks, there is no significant difference between the performance of the GVPGNN and the GVPGNN + Transformer. The GVPGNN without transformer seems to obtain slightly better evaluation scores for the SMP and MSP tasks. However, these deviations seem to fall within the standard deviation. The GVPGNN with transformer seems to obtain (not significantly) higher evaluation scores for the LBA task. However, for the LEP task, there seems to be a significant improvement from the GVPGNN + Transformer over the regular GVPCNN.
   
-Given the same computational resources and same computation time 
+Given the same computational resources and same computation time the GVP does not seem to benefit from using the transformer or transformer with pre-trained Bert embedding on the RES task.
+The outcomes derived from the experiment, where we use the combined GVP and BERT predictions, exhibit a significant degree of uncertainty, rendering them unreliable for drawing definitive conclusions.
+
   
 
 
@@ -308,7 +316,12 @@ Ruddigkeit, L., Van Deursen, R., et al. (2012). Journal of Chemical Information 
  
 Townshend, R. J., Vögele, M., Suriana, P., Derry, A., Powers, A., Laloudakis, Y., ... & Dror, R. O. (2020). Atom3d: Tasks on molecules in three dimensions. arXiv preprint arXiv:2012.04035.
  
+- Battaglia, P. W., et al. (2018). Relational inductive biases, deep learning, and graph networks. arXiv preprint arXiv:1806.01261.
+- Cohen, N., & Shashua, A. (2017). Inductive learning on large graphs using neural networks. arXiv preprint arXiv:1708.04205.
+- Jing, B., et al. (2021). Learning from Protein Structure with Geometric Vector Perceptrons.
 
+
+  
 ## Future work
 - Alle emoji smile uit dataset foldable
 - Use better version of ProtBert, if not limited by GPU memory
