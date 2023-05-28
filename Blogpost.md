@@ -76,7 +76,7 @@ In order to assess the quality of our reimplementation of the GVP architecture, 
 </blockquote></details>
 </li>
 <li> <details><summary>SMP</summary><blockquote>
-  <details><summary>The SMP dataset uses the QM9 dataset (Ruddigkeit et al., 2012; Ramakrishnan et al., 2014)(**still have to properly cite everything**), which contains structures and energetic, electronic, and thermodynamic properties for 134,000 stable small organic molecules, obtained from quantum-chemical calculations. The task here is to predict all molecular properties from the ground-state structure.</summary>
+  <details><summary>The SMP dataset uses the QM9 dataset (Ruddigkeit et al., 2012; Ramakrishnan et al., 2014), which contains structures and energetic, electronic, and thermodynamic properties for 134,000 stable small organic molecules, obtained from quantum-chemical calculations. The task here is to predict all molecular properties from the ground-state structure.</summary>
 </blockquote><details>
 </li>
 <li> <details><summary>LEP</summary><blockquote>
@@ -85,7 +85,7 @@ In order to assess the quality of our reimplementation of the GVP architecture, 
 </blockquote></details>
 </li>
 <li> <details><summary>MSP</summary><blockquote>
-  <details><summary>This is a novel dataset which was derived by collecting single-point mutations from the SKEMPI database (Jankauskaitė et al., 2019)(**properly cite**) and model each mutation into the structure to produce mutated structures. The task here can be seen as a binary classification task where we predict whether the stability of the complex increases as a result of the mutation.</summary>
+  <details><summary>This is a novel dataset which was derived by collecting single-point mutations from the SKEMPI database (Jankauskaitė et al., 2019) and model each mutation into the structure to produce mutated structures. The task here can be seen as a binary classification task where we predict whether the stability of the complex increases as a result of the mutation.</summary>
   </details>
 </blockquote></details>
 </li>
@@ -290,7 +290,15 @@ Description of what each student's contribution to the project was.
 - Equivariant Graph Neural Networks for 3D Macromolecular Structure
 - LEARNING  FROMPROTEINSTRUCTURE WITHGEOMETRICVECTORPERCEPTRONS
 - Alle andere papers 
+  
+Jankauskaite, J., Jiménez-García, B., et al. (2019). Bioinformatics, 35(3), 462–469.
+  
+Ramakrishnan, R., Dral, P. O., et al. (2014). Scientific Data, 1:1-7.
+
+Ruddigkeit, L., Van Deursen, R., et al. (2012). Journal of Chemical Information and Modeling, 52(11), 2864–2875. 
+ 
 Townshend, R. J., Vögele, M., Suriana, P., Derry, A., Powers, A., Laloudakis, Y., ... & Dror, R. O. (2020). Atom3d: Tasks on molecules in three dimensions. arXiv preprint arXiv:2012.04035.
+ 
 
 ## Future work
 - Alle emoji smile uit dataset foldable
