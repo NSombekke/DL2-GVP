@@ -100,6 +100,8 @@ Since the data and tasks that are described above differ, they use different eva
 
 **Mean Absolute Error (MAE) -** 
 This metric measures errors between paired observations that are supposed to express the same phenomenon. It is calculated as the sum of absolute errors divided by the sample size, making it an average over the absolute errors. A lower MAE indicates better classification. The MAE can be calculated as follows: $$MAE= \frac{\sum_{i=1}^{n} |y_i - x_i|}{n} = \frac{\sum_{i=1}^{n} |e_i|}{n}$$
+  
+$$MAE= {\sum_{i=1}^{n} |y_i - x_i| \over n} = {\sum_{i=1}^{n} |e_i| \over n}$$
 
 **Root-Mean-Square Error (RMSE) -**
 RMSE is a commonly used evaluation metric in regression tasks that measures the average deviation between predicted and actual values. It calculates the square root of the average of squared differences between predicted and true values. RMSE provides a single-value representation of the overall model performance, with a lower RMSE indicating better accuracy. It is useful for assessing the magnitude of prediction errors and comparing different models or parameter settings. It is calculated as follows: $$\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$$ Here, $n$ is the number of samples, $y$ is the target variable, and $\hat{y}$ is the predicted variable.
