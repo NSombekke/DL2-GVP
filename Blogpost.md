@@ -78,9 +78,7 @@ In order to assess the quality of our reimplementation of the GVP architecture, 
 </blockquote></details>
 </li>
 <li> <details><summary>SMP</summary><blockquote>
-  <details><summary>The SMP dataset uses the QM9 dataset (Ruddigkeit et al., 2012; Ramakrishnan et al., 2014)(**still have to properly cite everything**), which contains structures and energetic, electronic, and thermodynamic properties for 134,000 stable small organic molecules, obtained from quantum-chemical calculations. The task here is to predict all molecular properties from the ground-state structure.</summary><blockquote>
-    :smile:
-  </blockquote></details>
+  <details><summary>The SMP dataset uses the QM9 dataset (Ruddigkeit et al., 2012; Ramakrishnan et al., 2014)(**still have to properly cite everything**), which contains structures and energetic, electronic, and thermodynamic properties for 134,000 stable small organic molecules, obtained from quantum-chemical calculations. The task here is to predict all molecular properties from the ground-state structure.</summary>
 </blockquote></details>
 </li>
 <li> <details><summary>LEP</summary><blockquote>
