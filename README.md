@@ -100,16 +100,19 @@ This saves each model at every epoch to their specific directory (i.e. /models/L
 We logging we use wandb with the flag `--use_wandb` 
     
 #### Bert
+- This is only integrated on the "RES" ATOM3d task, not the Protein Interface Prediction (PIP) or any other.
 - To create the model embedding we can use the provided `get_model_emb.ipynb` or used the ones in `data/`
 
 During training we can use the flags:
-- `--transformer`  
-- `--bert_emb` 
-- `--bert_prediction`     
+- `--transformer` : Use the GVP-GNN with TransformerConv instead of GVPConv
+- `--bert_emb`    : To initialize the nn.Embedding with bert amino acids embeddings   
+- `--bert_prediction` : Use a MLP to combine the original GVP prediciton with the prediction of the bert model     
+- `--load_fullModel`   : Restore a model from a checkpoint to continue training
 
 ### Testing
 To evaluate a model, simply use the `--test` argument with `run_atom3d.py` and give the path to the model that you want to evaluate. See below an example of what this would look like for a model trained with TransformerConv on the LEP task with seed 42:
 ```
 python run_atom3d.py LEP --test models/LEP/Transformer/42/LEP_0000000000.0000000_00_TF.pt --seed 42 --batch 2 --transformer
 ```
+Make sure to use the --transformer flag if you want to test a transformer model. Same holds for Transformer with bert models.
     
