@@ -184,19 +184,19 @@ TransformerConv(MessagePassing):
 > __Note__: This is different than using the (Structured) Transformer architecture as the whole model which performance worse than the GVP, as was shown in the paper "Learning from Protein Structure with Geometric Vector Perceptrons".
 
 ### BERT language model 
-The atom3d tasks share a common underlying representation and problem domain, presenting an opportunity for _transfer learning_ to improve performance on data-poor tasks. Therefore, the authors use transfer learning technique to leverage the model weight trained on data-rich (SMP,RES) settings to improve model training on data-poor (MSP, LEP) dataset. 
+The ATOM3D tasks share a common underlying representation and problem domain, presenting an opportunity for _transfer learning_ to improve performance on data-poor tasks. Therefore, the authors use transfer learning techniques to leverage the model weight trained on data-rich (SMP,RES) settings to improve model training on data-poor (MSP, LEP) dataset. 
 
 We incorperate two levels of intergrating a BERT protein language model into the model, in order to boost the performance on the Residue Identity (RES) dataset.
 Amino acid substitution prediction is crucial for protein engineering. We use a new dataset extracted from PDB structures to classify amino acid identities based on surrounding structural environments, divided by protein topology classes. 
 The first level consists of using the BERT amino acid embedding `<nn.Embedding>`   
 to boost the training process instead of random initilizing. By using pre-trained embeddings from the paper [ProtTrans: Toward Understanding the Language of Life Through Self-Supervised Learning](https://github.com/agemagician/ProtTrans) the model already has relation information about how similair certran amino acids in their structure and behavior. We _unfroze_ the weight such that they are still trainable.
 
-The second level uses the masked language model function to predict the _[MASK]_ representing the amino acid we search for the RES data task. We combine the prediction of the GVPTransformer with the BERT prediction to ultimately end up with one amino acid. We combined both [batchsize,20] (for the 20 different amino acids) for the GVP and BERT prediction using a MLP, inspired by the paper [Sequence and structure based deep learning models represent different aspects of protein biochemistry](https://www.biorxiv.org/content/10.1101/2023.03.20.533508v1) 
+The second level uses the masked language model function to predict the _[MASK]_ representing the amino acid we search for the RES data task. We combine the prediction of the GVP-GNN + TransformerConv with the BERT prediction to ultimately end up with one amino acid. We combined both [batchsize,20] (for the 20 different amino acids) for the GVP and BERT prediction using a MLP, inspired by the paper [Sequence and structure based deep learning models represent different aspects of protein biochemistry](https://www.biorxiv.org/content/10.1101/2023.03.20.533508v1) 
 
 ## Results
 Every task has been trained on three seeds (0,34,42) on 50 epochs with same parameters as the original GVP-GNN.   
 Below are the best performing model checkpoint performance on the evaluation dataset.
-| **Task** | **Metric** | **GVPGNN**       | **GVPTransformer** |
+| **Task** | **Metric** | **GVPGNN**       | **GVP-GNN + TransformerConv** |
 |----------|------------|------------------|--------------------|
 | **SMP**  | MAE        | **18.64 ± 0.20** | 18.77 ± 	0.19       |
 | **LBA**  | RMSE       | 1.64 ± 0.07      | **1.58 ± 0.03**    |
