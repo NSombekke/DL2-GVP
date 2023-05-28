@@ -119,7 +119,7 @@ Accuracy is a common evaluation metric used in classification tasks to measure t
 The authors of [Equivariant Graph Neural Networks for 3D Macromolecular Structure](https://arxiv.org/abs/2106.03843) show that a modified GVP layer with vector gating improves performance on most of the ATOM3D tasks. The original GVP as described in Jing et al. (2021) has been modified in the last step such that we allow information to propagate from the scalar channels to the vector channels. The vector gating modification enables the GVP to inherit the Universal Approximation Property  of dense  layers  with  respect  to rotation- and reflection-equivariant functions F:Rν×3→R3, in addition to the approximation property for invariant functions shown by Jing et al. (2021). Jing et al (2021) also retrieved better evaluation results when vector gating was enabled. We therefore made the decision to enable vector gating as well on all our model experiments. 
 
 #### Batch size
-The training process was conducted on a GPU; however, due to the larger size of the model incorporating the Transformer within the GVP, it was not feasible to use the same batch size as in previous experiments. Despite this limitation, we performed experiments with multiple seeds, mitigating the potential impact of varying batch sizes on the training process.
+The training process was conducted on a GPU. However, due to the larger size of the model incorporating the Transformer within the GVP, it was not feasible to use the same batch size as in previous experiments. Despite this limitation, we performed experiments with multiple seeds, mitigating the potential impact of varying batch sizes on the training process.
  
 
 ## Novel Contribution
