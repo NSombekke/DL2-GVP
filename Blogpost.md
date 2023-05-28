@@ -207,15 +207,14 @@ Below are the best performing model checkpoint performance on the evaluation dat
 
 
 ### Residue Identity (RES) dataset
-#### What is the influence of the number of transformer head?
+
 ![](./images/Transformer8_16heads_v2.png)
-
-
-#### How does the original GVP compare with the _Transformer_ implementation?
+This image shows the influence of the number of heads in the transformer on the overal model performance.
 
 ![](./images/Trans_tov_GVP.png)
 <!-- <img src="./images/Trans_tov_GVP.png" alt= “” width="700" height="300">
  -->
+ This image shows how the original GVP compares with the _Transformer_implementation.
 
 > Can we conclude that TransformerConv gives the learning process a head start? We still see for both that the loss is decreasing so to be sure 
 > we need to train for longer. Below we combined group multiple run based on wether the Transformer was used or not, for a longer training periode. 
