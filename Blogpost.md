@@ -292,13 +292,13 @@ The ATOM3D datasets can be roughly grouped into four categories that represent a
 
 ## Individual Student's Contribution
 ### Erencan
-Erencan participated well during the entirety of the mini project. In the beginning, he was mainly responsible for running the code from Jing et al. (2021) and reproducing the results, together with Niels. After this, he helped with the implementation of the transformer into the GVP architecture. When we managed to implement this, Erencan was mainly responsible for the implementation of the pre-trained ProteinBERT embeddings. For the blogpost, the part about ProteinBERT, as well as other theoretical parts and the visualisation of the results, was mainly what Erencan worked on.
+Erencan participated during the entirety of the mini project. In the beginning, he was mainly responsible for running the code from Jing et al. (2021) and reproducing the results, together with Niels. After this, he helped with the implementation of the transformer into the GVP architecture. When we managed to implement this, Erencan was mainly responsible for the implementation of the pre-trained ProteinBERT embeddings. For the blogpost, the part about ProteinBERT, as well as other theoretical parts and the visualisation of the results, was mainly what Erencan worked on.
 
 ### Luka
 Luka was an active participant in the group during the entirety of the mini project as well. In the first weeks, after brainstorming about ideas on how to expand upon the work by Jing et al. (2021), he was mainly responsible in finding out where we could implement the transformer into the GVP architecture. After this, together with Niels and Erencan, he helped with this implementation and running the corresponding experiments. He also helped brainstorming on how to implement the ProteinBERT embeddings. For the blogpost, he worked mainly on the method section and the conclusion and discussion, as well as the overall layout.
 
 ### Wouter
-Wouter was present in the first two weeks during the brainstorm meetings about the mini project. During week 5 he started to be present again. For the blogpost, he wrote the introduction and the weaknesses/strengths/potential parts, the part about the TransformerConv, and parts of the conclusion and discussion.
+Wouter was present in the first two weeks during the brainstorm meetings about the mini project. During week 5 he started to be present again. For the blogpost, he wrote the introduction and the weaknesses/strengths/potential parts, the part about the TransformerConv, and parts of the conclusion and discussion. He asked the team members multiple times to help him understand the code, which didn't happen, therefore he only focused on writing.
 
 ### Niels
 Before Niels quit the course, he was an active group member. He was present during the brainstorms in the first weeks and was mainly responsible for running the code, and reproducing the results from the original paper by Jing et al. (2021). He also set up the GitHub repository and helped with the implementation of the transformer and ProteinBERT embeddings.
